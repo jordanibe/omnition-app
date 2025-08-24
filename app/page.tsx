@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen flex bg-dark-950">
+    <div className="h-screen w-screen flex bg-dark-950 overflow-hidden">
       <Sidebar 
         isCollapsed={isSidebarCollapsed} 
         onToggleCollapse={toggleSidebar}

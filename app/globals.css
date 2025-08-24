@@ -24,6 +24,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  overflow: hidden;
+}
+
+html {
+  overflow: hidden;
 }
 
 @layer utilities {
@@ -57,4 +62,19 @@ body {
     linear-gradient(90deg, rgba(59, 130, 246, 0.01) 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: 0 0, 0 0;
+}
+
+/* Ensure consistent form styling - maintain text-base (16px) for form elements */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* Consistent button styling */
+button {
+  font-size: 14px;
+}
+
+/* Consistent label styling */
+label {
+  font-size: 14px;
 }

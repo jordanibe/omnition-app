@@ -11,15 +11,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import { CLIENT_NAME } from '@/app/config'
-import { LogisticsModule } from '@/logistics_demo'
-
-interface Module {
-  id: string
-  name: string
-  type: 'logistics' | 'analytics' | 'documentation'
-  content: string
-  createdAt: Date
-}
+import { DocumentationModule } from '@/docs_demo'
 
 interface MainContentProps {
   clientName?: string
@@ -32,8 +24,8 @@ interface MainContentProps {
 
 type ModuleType = 'none' | 'logistics' | 'analytics' | 'documentation'
 
-export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modules, setModules, activeModuleId, setActiveModuleId }: MainContentProps) {
-  const [selectedModule, setSelectedModule] = useState<ModuleType>('none')
+export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: MainContentProps) {
+  const [selectedModule, setSelectedModule] = useState<'none' | 'logistics' | 'analytics' | 'documentation'>('none')
   const [message, setMessage] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [analyticsItems, setAnalyticsItems] = useState<string[]>([])
@@ -95,7 +87,6 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
   }
 
   const handleModuleSelect = (module: ModuleType) => {
-    if (module === 'documentation') return // Documentation module is disabled
     setSelectedModule(module)
     setMessage('')
     setAnalyticsInput('')
@@ -132,26 +123,23 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
     }
   }
 
-  const handleBuildAnalyticsModule = () => {
-    if (analyticsItems.length > 0) {
-      const newModule: Module = {
-        id: Date.now().toString(),
-        name: `Analytics Module ${modules.filter(m => m.type === 'analytics').length + 1}`,
-        type: 'analytics',
-        content: analyticsItems.join('\n'),
-        createdAt: new Date()
-      }
-      setModules([...modules, newModule])
-      setActiveModuleId(newModule.id)
-      setSelectedModule('none')
-      setAnalyticsItems([])
-    }
+  const handleFormSubmit = (documentType: any, data: any) => {
+    console.log('Document submitted:', { documentType, data })
+  }
+
+  const handleBackToMain = () => {
+    setSelectedModule('none')
+  }
+
+  // If documentation module is selected, render it
+  if (selectedModule === 'documentation') {
+    return <DocumentationModule onFormSubmit={handleFormSubmit} onBackToMain={handleBackToMain} />
   }
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-dark-950 graph-pattern">
+    <div className="flex-1 flex flex-col h-full bg-dark-950 graph-pattern overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between p-6">
+      <div className="flex items-center justify-between p-6 flex-shrink-0">
         <div className="flex items-center gap-2">
           <h1 className="text-3xl font-semibold text-white">Omnition</h1>
           <span className="text-xl text-gray-400">@ {clientName}</span>
@@ -173,9 +161,9 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center p-8 relative">
+      <div className="flex-1 flex flex-col items-center justify-center p-8 relative overflow-hidden">
         {/* Dynamic Title - Always Visible */}
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center flex-shrink-0">
           <h2 className="text-4xl font-medium mb-4 animate-float">
             {selectedModule === 'none' ? (
               <>
@@ -198,7 +186,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
 
         {/* Logistics Module Input Area */}
         {selectedModule === 'logistics' && (
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-3xl flex-shrink-0">
           <div className="relative">
                           <textarea
                 value={message}
@@ -209,7 +197,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
   - Each patient's duration is in minutes.
   - Each nurse can only do one patient at a time.
   - Each nurse can do up to their max capacity in patients.`}
-                className="w-full p-4 pr-24 pb-16 bg-dark-900 border border-dark-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[180px] scrollbar-thin scrollbar-thumb-dark-600 scrollbar-track-dark-800"
+                className="w-full p-4 pr-24 pb-16 bg-dark-900 border border-dark-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[180px]"
                 rows={5}
               />
             
@@ -253,7 +241,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
 
                 {/* Analytics Module Input Area */}
         {selectedModule === 'analytics' && (
-          <div className="w-full max-w-3xl mb-8">
+          <div className="w-full max-w-3xl mb-8 flex-shrink-0">
             <div className="flex items-center gap-3">
               {/* Browse Button */}
               <button className="px-4 py-2 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300">
@@ -343,7 +331,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
         })()}
 
         {/* Module Cards */}
-        <div className="w-full max-w-4xl mt-12">
+        <div className="w-full max-w-4xl mt-12 flex-shrink-0">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Logistics Module Card */}
             <div 
@@ -388,12 +376,23 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
             </div>
 
             {/* Documentation Module Card */}
-            <div className="p-6 bg-dark-900 border border-dark-700 rounded-2xl opacity-75 cursor-not-allowed">
-              <h3 className="text-lg font-semibold text-white mb-2">
+            <div 
+              onClick={() => handleModuleSelect('documentation' as any)}
+              className={`p-6 rounded-2xl transition-colors cursor-pointer group ${
+                (selectedModule as any) === 'documentation' 
+                  ? 'bg-dark-800 border-2 border-blue-500' 
+                  : 'bg-dark-900 border border-dark-700 hover:border-dark-600'
+              }`}
+            >
+              <h3 className={`text-lg font-semibold mb-2 transition-colors ${
+                (selectedModule as any) === 'documentation' 
+                  ? 'text-blue-400' 
+                  : 'text-white group-hover:text-blue-400'
+              }`}>
                 Documentation Module
               </h3>
               <p className="text-gray-400 text-sm">
-                Coming soon.
+                Create encounter notes and progress notes.
               </p>
             </div>
           </div>
