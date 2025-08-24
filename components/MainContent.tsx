@@ -289,7 +289,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
                 Logistics Module
               </h3>
               <p className="text-gray-400 text-sm">
-                Optimize scheduling, routing, or any logistical problem.
+                Orchestrate care at scale, from routes to rosters.
               </p>
             </div>
 
@@ -310,7 +310,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
                 Analytics Module
               </h3>
               <p className="text-gray-400 text-sm">
-                Ask questions and get insights about your operations.
+                Operational truth at a glance. Ask anything. See everything.
               </p>
             </div>
 
@@ -331,7 +331,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
                 Documentation Module
               </h3>
               <p className="text-gray-400 text-sm">
-                Create encounter notes and progress notes.
+              Clinical narratives, captured and coded effortlessly.
               </p>
             </div>
           </div>
