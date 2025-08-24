@@ -331,7 +331,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
                 Documentation Module
               </h3>
               <p className="text-gray-400 text-sm">
-              Clinical narratives, captured and coded effortlessly.
+                Clinical narratives, captured and coded effortlessly.
               </p>
             </div>
           </div>
