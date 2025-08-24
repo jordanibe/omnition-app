@@ -12,19 +12,21 @@ import {
 interface Module {
   id: string
   name: string
+  type: 'logistics' | 'analytics' | 'documentation'
+  content: string
   createdAt: Date
 }
 
 interface SidebarProps {
   isCollapsed: boolean
   onToggleCollapse: () => void
+  modules: Module[]
+  onNewModule: () => void
+  onModuleSelect: (moduleId: string) => void
+  activeModuleId: string | null
 }
 
-export default function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps) {
-  const [modules, setModules] = useState<Module[]>([
-    { id: '1', name: 'Scheduling Module', createdAt: new Date('2024-01-15') },
-    { id: '2', name: 'Documentation Module', createdAt: new Date('2024-01-14') },
-  ])
+export default function Sidebar({ isCollapsed, onToggleCollapse, modules, onNewModule, onModuleSelect, activeModuleId }: SidebarProps) {
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredModules = modules.filter(module =>
@@ -32,12 +34,7 @@ export default function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps)
   )
 
   const handleNewModule = () => {
-    const newModule: Module = {
-      id: Date.now().toString(),
-      name: `New Module ${modules.length + 1}`,
-      createdAt: new Date()
-    }
-    setModules([newModule, ...modules])
+    onNewModule()
   }
 
   if (isCollapsed) {
@@ -101,7 +98,12 @@ export default function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps)
             modules.map((module) => (
               <div
                 key={module.id}
-                className="p-3 rounded-lg hover:bg-dark-800 cursor-pointer transition-colors group"
+                onClick={() => onModuleSelect(module.id)}
+                className={`p-3 rounded-lg cursor-pointer transition-colors group ${
+                  activeModuleId === module.id 
+                    ? 'bg-dark-800 border border-blue-500' 
+                    : 'hover:bg-dark-800'
+                }`}
               >
                 <div className="text-gray-300 text-sm font-medium truncate">
                   {module.name}
