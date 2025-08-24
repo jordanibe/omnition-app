@@ -16,10 +16,6 @@ import { DocumentationModule } from '@/docs_demo'
 interface MainContentProps {
   clientName?: string
   clientLogo?: string
-  modules: Module[]
-  setModules: (modules: Module[]) => void
-  activeModuleId: string | null
-  setActiveModuleId: (id: string | null) => void
 }
 
 type ModuleType = 'none' | 'logistics' | 'analytics' | 'documentation'
@@ -56,16 +52,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
 
   const handleSend = () => {
     if (message.trim()) {
-      const newModule: Module = {
-        id: Date.now().toString(),
-        name: `Logistics Module ${modules.filter(m => m.type === 'logistics').length + 1}`,
-        type: 'logistics',
-        content: message,
-        createdAt: new Date()
-      }
-      setModules([...modules, newModule])
-      setActiveModuleId(newModule.id)
-      setSelectedModule('none')
+      console.log('Sending message:', message)
       setMessage('')
     }
   }
@@ -90,23 +77,6 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
     setSelectedModule(module)
     setMessage('')
     setAnalyticsInput('')
-  }
-
-  const handleNewModule = () => {
-    setSelectedModule('none')
-    setActiveModuleId(null)
-    setMessage('')
-    setAnalyticsInput('')
-  }
-
-  const handleModuleTabSelect = (moduleId: string) => {
-    const module = modules.find(m => m.id === moduleId)
-    if (module) {
-      setActiveModuleId(moduleId)
-      setSelectedModule('none')
-      setMessage('')
-      setAnalyticsInput('')
-    }
   }
 
   const handleAddAnalyticsItem = () => {
@@ -239,7 +209,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
         </div>
         )}
 
-                {/* Analytics Module Input Area */}
+        {/* Analytics Module Input Area */}
         {selectedModule === 'analytics' && (
           <div className="w-full max-w-3xl mb-8 flex-shrink-0">
             <div className="flex items-center gap-3">
@@ -291,44 +261,13 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
                 </div>
                 
                 {/* Build Analytics Module Button */}
-                <button 
-                  onClick={handleBuildAnalyticsModule}
-                  className="mt-4 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors text-white font-medium mx-auto block"
-                >
+                <button className="mt-4 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors text-white font-medium mx-auto block">
                   Build Analytics Module
                 </button>
               </div>
             )}
           </div>
         )}
-
-        {/* Active Module Content */}
-        {activeModuleId && (() => {
-          const activeModule = modules.find(m => m.id === activeModuleId)
-          if (!activeModule) return null
-          
-          if (activeModule.type === 'logistics') {
-            return (
-              <LogisticsModule
-                moduleTitle={activeModule.name}
-                onBackToHome={() => setActiveModuleId(null)}
-              />
-            )
-          }
-          
-          return (
-            <div className="w-full max-w-4xl mb-8">
-              <div className="p-6 bg-dark-900 border border-dark-700 rounded-2xl">
-                <h3 className="text-xl font-semibold text-white mb-4">
-                  {activeModule.name}
-                </h3>
-                <div className="text-gray-300 whitespace-pre-wrap">
-                  {activeModule.content}
-                </div>
-              </div>
-            </div>
-          )
-        })()}
 
         {/* Module Cards */}
         <div className="w-full max-w-4xl mt-12 flex-shrink-0">
@@ -361,7 +300,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
                 selectedModule === 'analytics' 
                   ? 'bg-dark-800 border-2 border-blue-500' 
                   : 'bg-dark-900 border border-dark-700 hover:border-dark-600'
-            }`}
+              }`}
             >
               <h3 className={`text-lg font-semibold mb-2 transition-colors ${
                 selectedModule === 'analytics' 
