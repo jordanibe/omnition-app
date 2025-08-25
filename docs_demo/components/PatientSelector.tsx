@@ -33,7 +33,15 @@ export default function PatientSelector({ patients, onSelectPatient, onBack }: P
       
       return matchesSearch
     })
-    .sort((a, b) => getRiskLevel(b.fallRisk) - getRiskLevel(a.fallRisk))
+    .sort((a, b) => {
+      if (selectedFilter === 'all') {
+        // Sort alphabetically by name for "All Patients"
+        return a.name.localeCompare(b.name)
+      } else {
+        // Sort by risk level for other filters
+        return getRiskLevel(b.fallRisk) - getRiskLevel(a.fallRisk)
+      }
+    })
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden">
@@ -53,7 +61,7 @@ export default function PatientSelector({ patients, onSelectPatient, onBack }: P
             placeholder="Search by name, diagnosis, or patient ID..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
           />
         </div>
         
@@ -110,16 +118,16 @@ export default function PatientSelector({ patients, onSelectPatient, onBack }: P
                       <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                         {patient.name}
                       </h3>
-                      <p className="text-sm text-gray-500">ID: {patient.id}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-sm text-gray-400">{patient.age} years</span>
-                    <p className="text-xs text-gray-500 capitalize">{patient.gender}</p>
+                                          <p className="text-md text-gray-500">ID: {patient.id}</p>
                   </div>
                 </div>
-                
-                <div className="space-y-2 text-sm">
+                <div className="text-right">
+                  <span className="text-md text-gray-400">{patient.age} years</span>
+                  <p className="text-md text-gray-500 capitalize">{patient.gender}</p>
+                </div>
+              </div>
+              
+              <div className="space-y-2 text-md">
                   <div className="flex items-center gap-2 text-gray-300">
                     <span className="font-medium">Primary:</span>
                     <span className="text-gray-400 truncate">{patient.primaryDiagnosis}</span>
@@ -132,7 +140,7 @@ export default function PatientSelector({ patients, onSelectPatient, onBack }: P
                   
                   <div className="flex items-center gap-2 text-gray-300">
                     <span className="font-medium">Risk:</span>
-                    <span className={`text-xs px-2 py-1 rounded ${
+                    <span className={`text-md px-2 py-1 rounded ${
                       patient.fallRisk.includes('Very high') ? 'bg-red-900 text-red-300' :
                       patient.fallRisk.includes('High') ? 'bg-orange-900 text-orange-300' :
                       patient.fallRisk.includes('Moderate') ? 'bg-yellow-900 text-yellow-300' :

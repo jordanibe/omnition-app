@@ -35,15 +35,15 @@ export default function TabbedForm({ tabs, onSubmit, isSubmitting = false, submi
       `}</style>
       
       {/* Tabs Navigation */}
-      <div className="flex border-b border-dark-700 mb-8 flex-shrink-0">
+      <div className="flex gap-2 mb-8 flex-shrink-0">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-6 py-4 text-base font-medium transition-colors border-b-2 ${
-              activeTab === tab.id
-                ? 'text-blue-400 border-blue-400 bg-dark-800'
-                : 'text-gray-400 border-transparent hover:text-gray-300 hover:bg-dark-800'
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              activeTab === tab.id 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-dark-700 text-gray-300 hover:bg-dark-600'
             }`}
           >
             {tab.label}

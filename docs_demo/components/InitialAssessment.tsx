@@ -126,7 +126,7 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
         </div>
         <button
           onClick={onBack}
-          className="px-6 py-2 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300"
+          className="px-10 py-4 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300"
         >
           Create Another Document
         </button>
@@ -143,8 +143,8 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
       {/* Patient Info Card */}
       {patient && (
             <div className="p-4 bg-dark-800 border border-dark-600 rounded-lg">
-              <h3 className="text-lg font-semibold text-white mb-4">Patient Information</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <h3 className="text-md font-semibold text-white mb-4">Patient Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-md">
             <div>
               <span className="text-gray-400">Name:</span> <span className="text-white">{patient.name}</span>
             </div>
@@ -169,7 +169,7 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
       content: (
         <div className="space-y-6">
             <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Past Medical History *
             </label>
               <textarea
@@ -177,24 +177,24 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
                 onChange={(e) => handleInputChange('pastMedicalHistory', e.target.value)}
               required
               rows={6}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
               />
             </div>
           
             <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Surgical History
             </label>
               <textarea
                 value={formData.surgicalHistory}
                 onChange={(e) => handleInputChange('surgicalHistory', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
               />
             </div>
           
             <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Current Medications *
             </label>
               <textarea
@@ -202,12 +202,12 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
                 onChange={(e) => handleInputChange('medications', e.target.value)}
                 required
               rows={6}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
         </div>
 
             <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Assessment Date *
             </label>
               <input
@@ -215,13 +215,13 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
                 value={formData.assessmentDate}
                 onChange={(e) => handleInputChange('assessmentDate', e.target.value)}
                 required
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Completed By *
               </label>
               <input
@@ -229,11 +229,11 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
                 value={formData.completedBy}
                 onChange={(e) => handleInputChange('completedBy', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Role *
               </label>
               <input
@@ -241,7 +241,7 @@ export default function InitialAssessment({ patient, onBack, onSubmit }: Initial
                 value={formData.completedByRole}
                 onChange={(e) => handleInputChange('completedByRole', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>

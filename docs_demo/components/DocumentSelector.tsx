@@ -39,13 +39,13 @@ export default function DocumentSelector({ onSelectDocument, onBack }: DocumentS
                 <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                   Encounter Note
                 </h3>
-                <p className="text-xs text-gray-500">Per visit</p>
+                <p className="text-md text-gray-500">Per visit</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm mb-3">
+            <p className="text-gray-400 text-md mb-3">
               Document patient encounters with homebound status, skilled services needs, and clinical observations.
             </p>
-            <p className="text-xs text-gray-500">Completed by: Any clinician</p>
+            <p className="text-md text-gray-500">Completed by: Any clinician</p>
           </div>
 
           {/* OASIS Assessment Card */}
@@ -61,13 +61,13 @@ export default function DocumentSelector({ onSelectDocument, onBack }: DocumentS
                 <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                   OASIS Assessment
                 </h3>
-                <p className="text-xs text-gray-500">OASIS-E</p>
+                <p className="text-md text-gray-500">OASIS-E</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm mb-3">
+            <p className="text-gray-400 text-md mb-3">
               Comprehensive patient assessment for Medicare/Medicaid with demographics, clinical status, and functional assessments.
             </p>
-            <p className="text-xs text-gray-500">Completed by: RN or qualified therapist</p>
+            <p className="text-md text-gray-500">Completed by: RN or qualified therapist</p>
           </div>
 
           {/* Initial Assessment Card */}
@@ -83,13 +83,13 @@ export default function DocumentSelector({ onSelectDocument, onBack }: DocumentS
                 <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                   Initial Assessment
                 </h3>
-                <p className="text-xs text-gray-500">First visit</p>
+                <p className="text-md text-gray-500">First visit</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm mb-3">
+            <p className="text-gray-400 text-md mb-3">
               First comprehensive patient evaluation with medical history, current condition, and initial care plan.
             </p>
-            <p className="text-xs text-gray-500">Completed by: Primary clinician</p>
+            <p className="text-md text-gray-500">Completed by: Primary clinician</p>
           </div>
 
           {/* Progress Note Card */}
@@ -105,13 +105,13 @@ export default function DocumentSelector({ onSelectDocument, onBack }: DocumentS
                 <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                   Progress Note
                 </h3>
-                <p className="text-xs text-gray-500">Ongoing visits</p>
+                <p className="text-md text-gray-500">Ongoing visits</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm mb-3">
+            <p className="text-gray-400 text-md mb-3">
               Document ongoing patient care, interventions performed, vital signs, and progress updates.
             </p>
-            <p className="text-xs text-gray-500">Completed by: Visiting clinician/aide</p>
+            <p className="text-md text-gray-500">Completed by: Visiting clinician/aide</p>
           </div>
         </div>
       </div>

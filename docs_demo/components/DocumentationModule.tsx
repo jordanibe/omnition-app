@@ -84,7 +84,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
           {selectedPatient && (
             <div className="flex items-center gap-2 text-gray-400">
               <span>•</span>
-              <span className="text-sm">{selectedPatient.name} ({selectedPatient.id})</span>
+              <span className="text-md">{selectedPatient.name} ({selectedPatient.id})</span>
             </div>
           )}
         </div>

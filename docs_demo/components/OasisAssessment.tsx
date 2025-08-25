@@ -167,8 +167,8 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
           {/* Patient Info Card */}
           {patient && (
             <div className="p-4 bg-dark-800 border border-dark-600 rounded-lg">
-              <h3 className="text-lg font-semibold text-white mb-4">Patient Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <h3 className="text-md font-semibold text-white mb-4">Patient Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-md">
                 <div>
                   <span className="text-gray-400">Name:</span> <span className="text-white">{patient.name}</span>
                 </div>
@@ -194,7 +194,7 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Age *
               </label>
               <input
@@ -202,17 +202,17 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
                 value={formData.age}
                 onChange={(e) => handleInputChange('age', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Gender
               </label>
               <select
                 value={formData.gender}
                 onChange={(e) => handleInputChange('gender', e.target.value)}
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -222,26 +222,26 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Race/Ethnicity
             </label>
             <input
               type="text"
               value={formData.raceEthnicity}
               onChange={(e) => handleInputChange('raceEthnicity', e.target.value)}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Living Arrangement
             </label>
             <textarea
               value={formData.livingArrangement}
               onChange={(e) => handleInputChange('livingArrangement', e.target.value)}
               rows={3}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -253,7 +253,7 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Primary Diagnosis *
             </label>
             <input
@@ -261,43 +261,43 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
               value={formData.primaryDiagnosis}
               onChange={(e) => handleInputChange('primaryDiagnosis', e.target.value)}
               required
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Secondary Diagnosis
             </label>
             <input
               type="text"
               value={formData.secondaryDiagnosis}
               onChange={(e) => handleInputChange('secondaryDiagnosis', e.target.value)}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Medications
             </label>
             <textarea
               value={formData.medications}
               onChange={(e) => handleInputChange('medications', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Allergies
             </label>
             <textarea
               value={formData.allergies}
               onChange={(e) => handleInputChange('allergies', e.target.value)}
               rows={3}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -309,7 +309,7 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               ADL Independence *
             </label>
             <textarea
@@ -317,12 +317,12 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
               onChange={(e) => handleInputChange('adlIndependence', e.target.value)}
               required
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Mobility Status *
             </label>
             <textarea
@@ -330,12 +330,12 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
               onChange={(e) => handleInputChange('mobilityStatus', e.target.value)}
               required
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Cognitive Function *
             </label>
             <textarea
@@ -343,7 +343,7 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
               onChange={(e) => handleInputChange('cognitiveFunction', e.target.value)}
               required
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -355,38 +355,38 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Skilled Nursing Needs
             </label>
             <textarea
               value={formData.skilledNursingNeeds}
               onChange={(e) => handleInputChange('skilledNursingNeeds', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Therapy Needs
             </label>
             <textarea
               value={formData.therapyNeeds}
               onChange={(e) => handleInputChange('therapyNeeds', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Equipment Needs
             </label>
             <textarea
               value={formData.equipmentNeeds}
               onChange={(e) => handleInputChange('equipmentNeeds', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -398,26 +398,26 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Depression Screening
             </label>
             <textarea
               value={formData.depressionScreening}
               onChange={(e) => handleInputChange('depressionScreening', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Anxiety Assessment
             </label>
             <textarea
               value={formData.anxietyAssessment}
               onChange={(e) => handleInputChange('anxietyAssessment', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -429,31 +429,31 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Fall Risk Assessment
             </label>
             <textarea
               value={formData.fallRisk}
               onChange={(e) => handleInputChange('fallRisk', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Medication Management
             </label>
             <textarea
               value={formData.medicationManagement}
               onChange={(e) => handleInputChange('medicationManagement', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Assessment Date *
             </label>
             <input
@@ -461,13 +461,13 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
               value={formData.assessmentDate}
               onChange={(e) => handleInputChange('assessmentDate', e.target.value)}
               required
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Completed By *
               </label>
               <input
@@ -475,11 +475,11 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
                 value={formData.completedBy}
                 onChange={(e) => handleInputChange('completedBy', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Role *
               </label>
               <input
@@ -487,7 +487,7 @@ export default function OasisAssessment({ patient, onBack, onSubmit }: OasisAsse
                 value={formData.completedByRole}
                 onChange={(e) => handleInputChange('completedByRole', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
