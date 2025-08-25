@@ -7,25 +7,42 @@ import {
   Mic,
   Settings,
   User,
-  Plus
+  Plus,
+  ChevronDown,
+  MessageSquare
 } from 'lucide-react'
 import Image from 'next/image'
 import { CLIENT_NAME } from '@/app/config'
-import { DocumentationModule } from '@/docs_demo'
+import { patients } from '@/docs_demo/data/patients'
+import { DocumentType } from '@/docs_demo/types'
+import DocumentationView from './DocumentationView'
+import { LogisticsView } from '@/logistics_demo'
 
 interface MainContentProps {
   clientName?: string
   clientLogo?: string
+  modules?: any[]
+  setModules?: (modules: any[]) => void
+  activeModuleId?: string | null
+  setActiveModuleId?: (id: string | null) => void
 }
 
 type ModuleType = 'none' | 'logistics' | 'analytics' | 'documentation'
 
-export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: MainContentProps) {
+export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modules = [], setModules, activeModuleId, setActiveModuleId }: MainContentProps) {
   const [selectedModule, setSelectedModule] = useState<'none' | 'logistics' | 'analytics' | 'documentation'>('none')
   const [message, setMessage] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [analyticsItems, setAnalyticsItems] = useState<string[]>([])
   const [analyticsInput, setAnalyticsInput] = useState('')
+  
+  // Documentation module state
+  const [selectedPatient, setSelectedPatient] = useState<any>(null)
+  const [selectedDocumentType, setSelectedDocumentType] = useState<DocumentType | 'ask-omni' | null>(null)
+  const [askOmniText, setAskOmniText] = useState('')
+  const [isPatientDropdownOpen, setIsPatientDropdownOpen] = useState(false)
+  const [isDocumentDropdownOpen, setIsDocumentDropdownOpen] = useState(false)
+  const [patientSearchTerm, setPatientSearchTerm] = useState('')
   
   // Title arrays for different modules
   const logisticsTitles = [
@@ -39,6 +56,12 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
     "Let's dive deeper.",
     "What do you want to know?"
   ]
+
+  const documentationTitles = [
+    "What would you like to document?",
+    "Let's capture the details.",
+    "What needs to be recorded?"
+  ]
   
   // Get random title for current module
   const getCurrentTitle = () => {
@@ -46,13 +69,38 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
       return logisticsTitles[Math.floor(Math.random() * logisticsTitles.length)]
     } else if (selectedModule === 'analytics') {
       return analyticsTitles[Math.floor(Math.random() * analyticsTitles.length)]
+    } else if (selectedModule === 'documentation') {
+      return documentationTitles[Math.floor(Math.random() * documentationTitles.length)]
     }
     return "Hi, I'm Omni. What shall I build for you?"
   }
 
+  const documentTypeLabels = {
+    'encounter': 'Encounter Note',
+    'oasis': 'OASIS Assessment',
+    'initial': 'Initial Assessment',
+    'progress': 'Progress Note',
+    'ask-omni': 'Ask Omni'
+  }
+
   const handleSend = () => {
     if (message.trim()) {
-      console.log('Sending message:', message)
+      // Create a new logistics module and add it to the sidebar
+      const newModule = {
+        id: `log_${Date.now()}`,
+        name: `Logistics Optimization - ${new Date().toLocaleDateString()}`,
+        type: 'logistics' as const,
+        content: message,
+        createdAt: new Date()
+      }
+
+      if (setModules) {
+        setModules([...modules || [], newModule])
+      }
+      if (setActiveModuleId) {
+        setActiveModuleId(newModule.id)
+      }
+      
       setMessage('')
     }
   }
@@ -77,6 +125,19 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
     setSelectedModule(module)
     setMessage('')
     setAnalyticsInput('')
+    // Reset documentation state when switching modules
+    if (module !== 'documentation') {
+      setSelectedPatient(null)
+      setSelectedDocumentType(null)
+      setAskOmniText('')
+      setIsPatientDropdownOpen(false)
+      setIsDocumentDropdownOpen(false)
+      setPatientSearchTerm('')
+    }
+    // Clear active module when switching to main interface
+    if (setActiveModuleId) {
+      setActiveModuleId(null)
+    }
   }
 
   const handleAddAnalyticsItem = () => {
@@ -97,13 +158,99 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
     console.log('Document submitted:', { documentType, data })
   }
 
-  const handleBackToMain = () => {
-    setSelectedModule('none')
+  // Documentation module handlers
+  const handleDocumentationSubmit = () => {
+    if (!selectedPatient) {
+      alert('Please select a patient')
+      return
+    }
+    
+    if (!selectedDocumentType) {
+      alert('Please select a document type')
+      return
+    }
+
+    if (selectedDocumentType === 'ask-omni') {
+      if (!askOmniText.trim()) {
+        alert('Please enter your question for Omni')
+        return
+      }
+      console.log('Ask Omni submitted:', { patient: selectedPatient, question: askOmniText })
+      alert(`Omni will help you with: "${askOmniText}" for patient ${selectedPatient.name}`)
+      return
+    }
+
+    // Create a new module and add it to the sidebar
+    const newModule = {
+      id: `doc_${Date.now()}`,
+      name: `${documentTypeLabels[selectedDocumentType]} - ${selectedPatient.name}`,
+      type: 'documentation' as const,
+      content: '',
+      createdAt: new Date(),
+      documentType: selectedDocumentType,
+      patientId: selectedPatient.id,
+      patientName: selectedPatient.name
+    }
+
+    if (setModules) {
+      setModules([...modules || [], newModule])
+    }
+    if (setActiveModuleId) {
+      setActiveModuleId(newModule.id)
+    }
   }
 
-  // If documentation module is selected, render it
-  if (selectedModule === 'documentation') {
-    return <DocumentationModule onFormSubmit={handleFormSubmit} onBackToMain={handleBackToMain} />
+  const togglePatientDropdown = () => {
+    setIsPatientDropdownOpen(!isPatientDropdownOpen)
+    setIsDocumentDropdownOpen(false)
+  }
+
+  const toggleDocumentDropdown = () => {
+    setIsDocumentDropdownOpen(!isDocumentDropdownOpen)
+    setIsPatientDropdownOpen(false)
+  }
+
+  const selectPatient = (patient: any) => {
+    setSelectedPatient(patient)
+    setIsPatientDropdownOpen(false)
+    setPatientSearchTerm('')
+  }
+
+  const selectDocumentType = (docType: DocumentType | 'ask-omni') => {
+    setSelectedDocumentType(docType)
+    setIsDocumentDropdownOpen(false)
+    if (docType !== 'ask-omni') {
+      setAskOmniText('')
+    }
+  }
+
+  // If there's an active module, render the appropriate view
+  if (activeModuleId) {
+    const activeModule = modules.find(m => m.id === activeModuleId)
+    if (activeModule && activeModule.type === 'documentation' && activeModule.documentType && activeModule.patientId) {
+      const patient = patients.find(p => p.id === activeModule.patientId)
+      if (patient && activeModule.documentType !== 'ask-omni') {
+        return (
+          <DocumentationView
+            documentType={activeModule.documentType as DocumentType}
+            patient={patient}
+            onBack={() => {
+              if (setActiveModuleId) {
+                setActiveModuleId(null)
+              }
+            }}
+          />
+        )
+      }
+    }
+    
+    if (activeModule && activeModule.type === 'logistics') {
+      return (
+        <LogisticsView
+          moduleName={activeModule.name}
+        />
+      )
+    }
   }
 
   return (
@@ -112,7 +259,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
       <div className="flex items-center justify-between p-6 flex-shrink-0">
         <div className="flex items-center gap-2">
           <h1 className="text-3xl font-semibold text-white">Omnition</h1>
-          <span className="text-xl text-gray-400">@ {clientName}</span>
+          {/* <span className="text-xl text-gray-400">@ {clientName}</span> */}
         </div>
         
         <div className="w-12 h-12 rounded-lg bg-dark-800 border border-dark-600 flex items-center justify-center">
@@ -269,6 +416,116 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
           </div>
         )}
 
+        {/* Documentation Module Input Area */}
+        {selectedModule === 'documentation' && (
+          <div className="w-full max-w-4xl flex-shrink-0">
+            <div className="flex items-center gap-4">
+              {/* Patient Dropdown */}
+              <div className="relative flex-1">
+                <button
+                  onClick={togglePatientDropdown}
+                  className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-left text-white hover:border-dark-600 transition-colors flex items-center justify-between"
+                >
+                  <span className={selectedPatient ? 'text-white' : 'text-gray-400'}>
+                    {selectedPatient ? `${selectedPatient.name} (${selectedPatient.id})` : 'Select Patient...'}
+                  </span>
+                  <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isPatientDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isPatientDropdownOpen && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-dark-900 border border-dark-700 rounded-lg max-h-60 overflow-y-auto z-10">
+                    {/* Search Input */}
+                    <div className="p-3 border-b border-dark-700">
+                      <input
+                        type="text"
+                        value={patientSearchTerm}
+                        onChange={(e) => setPatientSearchTerm(e.target.value)}
+                        placeholder="Search patients..."
+                        className="w-full p-2 bg-dark-800 border border-dark-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                        autoFocus
+                      />
+                    </div>
+                    {/* Patient List */}
+                    {patients
+                      .filter(patient => 
+                        patient.name.toLowerCase().includes(patientSearchTerm.toLowerCase()) ||
+                        patient.id.toLowerCase().includes(patientSearchTerm.toLowerCase())
+                      )
+                      .map((patient) => (
+                        <button
+                          key={patient.id}
+                          onClick={() => selectPatient(patient)}
+                          className="w-full p-3 text-left text-white hover:bg-dark-800 transition-colors border-b border-dark-700 last:border-b-0"
+                        >
+                          <div className="font-medium">{patient.name}</div>
+                          <div className="text-sm text-gray-400">ID: {patient.id} • Age: {patient.age}</div>
+                        </button>
+                      ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Document Type Dropdown */}
+              <div className="relative flex-1">
+                <button
+                  onClick={toggleDocumentDropdown}
+                  className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-left text-white hover:border-dark-600 transition-colors flex items-center justify-between"
+                >
+                  <span className={selectedDocumentType ? 'text-white' : 'text-gray-400'}>
+                    {selectedDocumentType ? documentTypeLabels[selectedDocumentType] : 'Select Document Type...'}
+                  </span>
+                  <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isDocumentDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isDocumentDropdownOpen && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-dark-900 border border-dark-700 rounded-lg z-10">
+                    {Object.entries(documentTypeLabels).map(([key, label]) => (
+                      <button
+                        key={key}
+                        onClick={() => selectDocumentType(key as DocumentType | 'ask-omni')}
+                        className="w-full p-3 text-left text-white hover:bg-dark-800 transition-colors border-b border-dark-700 last:border-b-0 flex items-center gap-2"
+                      >
+                        {key === 'ask-omni' && <MessageSquare className="w-4 h-4 text-blue-400" />}
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Submit Button */}
+              <button
+                onClick={handleDocumentationSubmit}
+                disabled={!selectedPatient || !selectedDocumentType}
+                className="p-3 bg-blue-600 hover:bg-blue-700 disabled:bg-dark-700 disabled:cursor-not-allowed rounded-lg transition-colors flex-shrink-0"
+              >
+                <Send className="w-5 h-5 text-white" />
+              </button>
+            </div>
+
+            {/* Ask Omni Text Input - Only show when "Ask Omni" is selected */}
+            {selectedDocumentType === 'ask-omni' && (
+              <div className="mt-4">
+                <div className="relative">
+                  <textarea
+                    value={askOmniText}
+                    onChange={(e) => setAskOmniText(e.target.value)}
+                    placeholder="Describe what you need help with... For example: 'Help me write a progress note for this patient's recent fall' or 'What should I document for this patient's medication changes?'"
+                    className="w-full p-4 pr-16 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[120px]"
+                    rows={4}
+                  />
+                  <div className="absolute bottom-4 right-4 flex items-center gap-2 text-gray-400 text-sm">
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Ask Omni</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+
+          </div>
+        )}
+
         {/* Module Cards */}
         <div className="w-full max-w-4xl mt-12 flex-shrink-0">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -316,15 +573,15 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo }: Ma
 
             {/* Documentation Module Card */}
             <div 
-              onClick={() => handleModuleSelect('documentation' as any)}
+              onClick={() => handleModuleSelect('documentation')}
               className={`p-6 rounded-2xl transition-colors cursor-pointer group ${
-                (selectedModule as any) === 'documentation' 
+                selectedModule === 'documentation' 
                   ? 'bg-dark-800 border-2 border-blue-500' 
                   : 'bg-dark-900 border border-dark-700 hover:border-dark-600'
               }`}
             >
               <h3 className={`text-lg font-semibold mb-2 transition-colors ${
-                (selectedModule as any) === 'documentation' 
+                selectedModule === 'documentation' 
                   ? 'text-blue-400' 
                   : 'text-white group-hover:text-blue-400'
               }`}>

@@ -1,4 +1,4 @@
-export type DocumentType = 'encounter' | 'oasis' | 'initial' | 'progress'
+export type DocumentType = 'encounter' | 'oasis' | 'initial' | 'progress' | 'ask-omni'
 
 // Encounter Note Types
 export interface EncounterNoteData {

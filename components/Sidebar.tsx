@@ -24,9 +24,10 @@ interface SidebarProps {
   onNewModule: () => void
   onModuleSelect: (moduleId: string) => void
   activeModuleId: string | null
+  clientName?: string
 }
 
-export default function Sidebar({ isCollapsed, onToggleCollapse, modules, onNewModule, onModuleSelect, activeModuleId }: SidebarProps) {
+export default function Sidebar({ isCollapsed, onToggleCollapse, modules, onNewModule, onModuleSelect, activeModuleId, clientName }: SidebarProps) {
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredModules = modules.filter(module =>
@@ -72,7 +73,9 @@ export default function Sidebar({ isCollapsed, onToggleCollapse, modules, onNewM
       {/* Header */}
       <div className="p-4">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-medium text-gray-300">OmnitionAI</h2>
+          <h2 className="text-sm font-medium text-gray-300">
+            OmnitionAI {clientName && `@ ${clientName}`}
+          </h2>
           <button
             onClick={onToggleCollapse}
             className="p-1 rounded hover:bg-dark-800 transition-colors"

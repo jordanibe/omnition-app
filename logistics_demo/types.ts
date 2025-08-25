@@ -11,6 +11,8 @@ export interface Appointment {
   startTime: string
   endTime: string
   personnelId: string
+  type?: string
+  duration?: number
 }
 
 export interface Schedule {

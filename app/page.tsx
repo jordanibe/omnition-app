@@ -11,6 +11,10 @@ interface Module {
   type: 'logistics' | 'analytics' | 'documentation'
   content: string
   createdAt: Date
+  // Additional properties for specific module types
+  documentType?: string
+  patientId?: string
+  patientName?: string
 }
 
 export default function Home() {
@@ -39,6 +43,7 @@ export default function Home() {
         onNewModule={handleNewModule}
         onModuleSelect={handleModuleSelect}
         activeModuleId={activeModuleId}
+        clientName={CLIENT_NAME}
       />
       <MainContent 
         clientName={CLIENT_NAME}

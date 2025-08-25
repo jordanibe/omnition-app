@@ -23,10 +23,10 @@ export default function RadarChart({ data }: RadarChartProps) {
       if (ctx) {
         const chartData: ChartData<'radar'> = {
           labels: [
-            'Appointment Volume',
-            'Provider Balance', 
-            'Travel Efficiency',
-            'Continuity of Care'
+            'Appointment\nVolume',
+            'Provider\nBalance', 
+            'Travel\nEfficiency',
+            'Continuity\nof Care'
           ],
           datasets: [
             {
@@ -89,7 +89,16 @@ export default function RadarChart({ data }: RadarChartProps) {
                 pointLabels: {
                   color: '#9ca3af',
                   font: {
-                    size: 12
+                    size: 11
+                  },
+                  callback: function(value: any, index: number) {
+                    const labels = [
+                      'Appointment\nVolume',
+                      'Provider\nBalance', 
+                      'Travel\nEfficiency',
+                      'Continuity\nof Care'
+                    ]
+                    return labels[index].split('\n')
                   }
                 }
               }
@@ -109,25 +118,26 @@ export default function RadarChart({ data }: RadarChartProps) {
   }, [data])
 
   return (
-    <div className="w-full h-full p-4">
-      <h3 className="text-lg font-semibold text-white mb-4">Recommended</h3>
-      
-      <div className="relative w-48 h-48 mx-auto">
+    <div className="w-full h-full flex flex-col items-center justify-center p-4">
+      {/* Radar Chart */}
+      <div className="relative w-48 h-48 mb-6">
         <canvas ref={chartRef} />
       </div>
       
-      {/* Metrics summary */}
-      <div className="mt-4 space-y-2">
-        <div className="text-center">
-          <div className="text-2xl font-bold text-white">62</div>
-          <div className="text-sm text-green-400">+27.2% from baseline</div>
-          <div className="text-xs text-gray-400">Appointments Scheduled</div>
+      {/* Metric Cards */}
+      <div className="w-full flex gap-4">
+        {/* Appointments Card */}
+        <div className="flex-1 bg-dark-800 rounded-lg p-4 text-center">
+          <div className="text-2xl font-bold text-white mb-1">62</div>
+          <div className="text-sm text-green-400 mb-1">+27.2% from baseline</div>
+          <div className="text-xs text-gray-300">Appointments Scheduled</div>
         </div>
         
-        <div className="text-center">
-          <div className="text-2xl font-bold text-white">746 min</div>
-          <div className="text-sm text-green-400">-151.3% from baseline</div>
-          <div className="text-xs text-gray-400">Total Travel Time</div>
+        {/* Travel Time Card */}
+        <div className="flex-1 bg-dark-800 rounded-lg p-4 text-center">
+          <div className="text-2xl font-bold text-white mb-1">746 min</div>
+          <div className="text-sm text-green-400 mb-1">-151.3% from baseline</div>
+          <div className="text-xs text-gray-300">Total Travel Time</div>
         </div>
       </div>
     </div>

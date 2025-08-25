@@ -1,5 +1,6 @@
 export { default as LogisticsModule } from './components/LogisticsModule'
-export { default as GanttChart } from './components/GanttChart'
+export { default as LogisticsView } from './components/LogisticsView'
+export { default as CustomGanttChart } from './components/CustomGanttChart'
 export { default as RadarChart } from './components/RadarChart'
 
 export type {
