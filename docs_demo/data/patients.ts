@@ -34,7 +34,7 @@ export interface Patient {
   visitFrequency: string
 }
 
-export const patients: Patient[] = [
+const rawPatients: Patient[] = [
   {
     id: "P001",
     name: "Margaret Johnson",
@@ -561,3 +561,11 @@ export const patients: Patient[] = [
     visitFrequency: "7x weekly nursing visits, 5x weekly PT/OT"
   }
 ]
+
+export const patients: Patient[] = rawPatients.map((p) => ({
+  ...p,
+  // Clear current-assessed fields; keep historical fields intact
+  chiefComplaint: '',
+  currentSymptoms: '',
+  painAssessment: ''
+}))
