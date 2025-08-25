@@ -127,7 +127,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
         </div>
         <button
           onClick={onBack}
-          className="px-6 py-2 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300"
+          className="px-10 py-4 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300"
         >
           Create Another Document
         </button>
@@ -144,8 +144,8 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
           {/* Patient Info Card */}
           {patient && (
             <div className="p-4 bg-dark-800 border border-dark-600 rounded-lg">
-              <h3 className="text-lg font-semibold text-white mb-4">Patient Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <h3 className="text-md font-semibold text-white mb-4">Patient Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-md">
                 <div>
                   <span className="text-gray-400">Name:</span> <span className="text-white">{patient.name}</span>
                 </div>
@@ -171,7 +171,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Visit Date *
               </label>
               <input
@@ -179,25 +179,25 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.visitDate}
                 onChange={(e) => handleInputChange('visitDate', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Visit Time
               </label>
               <input
                 type="time"
                 value={formData.visitTime}
                 onChange={(e) => handleInputChange('visitTime', e.target.value)}
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Visit Type
               </label>
               <input
@@ -205,11 +205,11 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.visitType}
                 onChange={(e) => handleInputChange('visitType', e.target.value)}
                 placeholder="e.g., Skilled nursing, Physical therapy"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Duration
               </label>
               <input
@@ -217,7 +217,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.duration}
                 onChange={(e) => handleInputChange('duration', e.target.value)}
                 placeholder="e.g., 45 minutes"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Current Status *
             </label>
             <textarea
@@ -238,19 +238,19 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
               onChange={(e) => handleInputChange('currentStatus', e.target.value)}
               required
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Changes Since Last Visit
             </label>
             <textarea
               value={formData.changesSinceLastVisit}
               onChange={(e) => handleInputChange('changesSinceLastVisit', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -262,7 +262,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Interventions Performed *
             </label>
             <textarea
@@ -270,12 +270,12 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
               onChange={(e) => handleInputChange('interventionsPerformed', e.target.value)}
               required
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Patient Response *
             </label>
             <textarea
@@ -283,19 +283,19 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
               onChange={(e) => handleInputChange('patientResponse', e.target.value)}
               required
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Engagement Level
             </label>
             <textarea
               value={formData.engagementLevel}
               onChange={(e) => handleInputChange('engagementLevel', e.target.value)}
               rows={3}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -308,7 +308,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Blood Pressure
               </label>
               <input
@@ -316,11 +316,11 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.bloodPressure}
                 onChange={(e) => handleInputChange('bloodPressure', e.target.value)}
                 placeholder="e.g., 120/80"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Heart Rate
               </label>
               <input
@@ -328,14 +328,14 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.heartRate}
                 onChange={(e) => handleInputChange('heartRate', e.target.value)}
                 placeholder="e.g., 72 bpm"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Respiratory Rate
               </label>
               <input
@@ -343,11 +343,11 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.respiratoryRate}
                 onChange={(e) => handleInputChange('respiratoryRate', e.target.value)}
                 placeholder="e.g., 16/min"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Temperature
               </label>
               <input
@@ -355,14 +355,14 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.temperature}
                 onChange={(e) => handleInputChange('temperature', e.target.value)}
                 placeholder="e.g., 98.6°F"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Oxygen Saturation
               </label>
               <input
@@ -370,11 +370,11 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.oxygenSaturation}
                 onChange={(e) => handleInputChange('oxygenSaturation', e.target.value)}
                 placeholder="e.g., 98%"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Pain Level
               </label>
               <input
@@ -382,7 +382,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.painLevel}
                 onChange={(e) => handleInputChange('painLevel', e.target.value)}
                 placeholder="e.g., 2/10"
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
@@ -395,38 +395,38 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Changes in Condition
             </label>
             <textarea
               value={formData.changesInCondition}
               onChange={(e) => handleInputChange('changesInCondition', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Plan Updates
             </label>
             <textarea
               value={formData.planUpdates}
               onChange={(e) => handleInputChange('planUpdates', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Next Visit Plans
             </label>
             <textarea
               value={formData.nextVisitPlans}
               onChange={(e) => handleInputChange('nextVisitPlans', e.target.value)}
               rows={4}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
         </div>
@@ -438,20 +438,20 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
       content: (
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-md font-medium text-gray-300 mb-2">
               Additional Visit Notes
             </label>
             <textarea
               value={formData.visitNotes}
               onChange={(e) => handleInputChange('visitNotes', e.target.value)}
               rows={6}
-              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors resize-none"
             />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Completed By *
               </label>
               <input
@@ -459,11 +459,11 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.completedBy}
                 onChange={(e) => handleInputChange('completedBy', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-md font-medium text-gray-300 mb-2">
                 Role *
               </label>
               <input
@@ -471,7 +471,7 @@ export default function ProgressNote({ patient, onBack, onSubmit }: ProgressNote
                 value={formData.completedByRole}
                 onChange={(e) => handleInputChange('completedByRole', e.target.value)}
                 required
-                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>

@@ -14,7 +14,7 @@ export default function FormHeader({ title, subtitle, onBack }: FormHeaderProps)
         className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-4"
       >
         <ArrowLeft className="w-4 h-4" />
-        <span className="text-sm">Back to document types</span>
+        <span className="text-md">Back to document types</span>
       </button>
       
       <h2 className="text-3xl font-semibold text-white mb-2">{title}</h2>

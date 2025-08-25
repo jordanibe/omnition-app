@@ -73,7 +73,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
           {selectedPatient && (
             <div className="flex items-center gap-2 text-gray-400">
               <span>•</span>
-              <span className="text-sm">{selectedPatient.name} ({selectedPatient.id})</span>
+              <span className="text-md">{selectedPatient.name} ({selectedPatient.id})</span>
             </div>
           )}
         </div>
@@ -91,7 +91,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
     switch (currentView) {
       case 'patient-selector':
         return (
-          <div className="flex-1 p-6 overflow-hidden">
+          <div className="flex-1 p-6 overflow-y-auto">
             <PatientSelector
               patients={patients}
               onSelectPatient={handleSelectPatient}
@@ -102,7 +102,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
       
       case 'document-selector':
         return (
-          <div className="flex-1 p-6 overflow-hidden">
+          <div className="flex-1 p-6 overflow-y-auto">
             <DocumentSelector 
               onSelectDocument={handleSelectDocument}
               onBack={handleBackToPatientSelector}
@@ -112,7 +112,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
       
       case 'encounter':
         return (
-          <div className="flex-1 p-6 overflow-hidden">
+          <div className="flex-1 p-6 overflow-y-auto">
             <EncounterNote 
               patient={selectedPatient}
               onBack={handleBackToDocumentSelector}
@@ -123,7 +123,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
       
       case 'oasis':
         return (
-          <div className="flex-1 p-6 overflow-hidden">
+          <div className="flex-1 p-6 overflow-y-auto">
             <OasisAssessment 
               patient={selectedPatient}
               onBack={handleBackToDocumentSelector}
@@ -134,7 +134,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
       
       case 'initial':
         return (
-          <div className="flex-1 p-6 overflow-hidden">
+          <div className="flex-1 p-6 overflow-y-auto">
             <InitialAssessment 
               patient={selectedPatient}
               onBack={handleBackToDocumentSelector}
@@ -145,7 +145,7 @@ export default function DocumentationModule({ onFormSubmit, onBackToMain }: Docu
       
       case 'progress':
         return (
-          <div className="flex-1 p-6 overflow-hidden">
+          <div className="flex-1 p-6 overflow-y-auto">
             <ProgressNote 
               patient={selectedPatient}
               onBack={handleBackToDocumentSelector}

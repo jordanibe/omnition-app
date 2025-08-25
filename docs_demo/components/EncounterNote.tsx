@@ -115,7 +115,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
         </div>
         <button
           onClick={onBack}
-          className="px-6 py-2 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300"
+          className="px-10 py-4 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors text-gray-300"
         >
           Create Another Document
         </button>
@@ -132,8 +132,8 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
           {/* Patient Info Card */}
           {patient && (
             <div className="p-6 bg-dark-800 border border-dark-600 rounded-lg">
-              <h3 className="text-xl font-semibold text-white mb-6">Patient Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-base">
+              <h3 className="text-md font-semibold text-white mb-6">Patient Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-md">
                 <div>
                   <span className="text-gray-400">Name:</span> <span className="text-white ml-2">{patient.name}</span>
                 </div>
@@ -159,7 +159,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
         <div className="space-y-8">
           {/* Date/Time of Encounter */}
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-3">
+            <label className="block text-md font-medium text-gray-300 mb-3">
               Date/Time of Encounter *
             </label>
             <input
@@ -167,13 +167,13 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
               value={formData.dateTime}
               onChange={(e) => handleInputChange('dateTime', e.target.value)}
               required
-              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors text-base"
+              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white text-md focus:outline-none focus:border-blue-500 transition-colors text-md"
             />
           </div>
 
           {/* Reason for Encounter */}
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-3">
+            <label className="block text-md font-medium text-gray-300 mb-3">
               Reason for Encounter *
             </label>
             <textarea
@@ -182,13 +182,13 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
               required
               rows={4}
               placeholder="Describe the primary reason for this encounter..."
-              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none text-base"
+              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors resize-none text-md"
             />
           </div>
 
           {/* Homebound Status */}
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-3">
+            <label className="block text-md font-medium text-gray-300 mb-3">
               Assessment of Homebound Status *
             </label>
             <div className="space-y-4">
@@ -202,7 +202,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
                     onChange={(e) => handleInputChange('homeboundStatus', e.target.value)}
                     className="text-blue-600 focus:ring-blue-500 w-4 h-4"
                   />
-                  <span className="text-gray-300 text-base">Yes</span>
+                  <span className="text-gray-300 text-md">Yes</span>
                 </label>
                 <label className="flex items-center gap-3">
                   <input
@@ -213,7 +213,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
                     onChange={(e) => handleInputChange('homeboundStatus', e.target.value)}
                     className="text-blue-600 focus:ring-blue-500 w-4 h-4"
                   />
-                  <span className="text-gray-300 text-base">No</span>
+                  <span className="text-gray-300 text-md">No</span>
                 </label>
               </div>
               {formData.homeboundStatus === 'yes' && (
@@ -223,7 +223,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
                   required
                   rows={4}
                   placeholder="Provide details about homebound status..."
-                  className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none text-base"
+                  className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors resize-none text-md"
                 />
               )}
             </div>
@@ -231,7 +231,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
 
           {/* Need for Skilled Services */}
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-4">
+            <label className="block text-md font-medium text-gray-300 mb-4">
               Need for Skilled Services
             </label>
             <div className="grid grid-cols-2 gap-4">
@@ -250,7 +250,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
                     onChange={(e) => handleSkilledServiceChange(key as keyof typeof formData.skilledServices, e.target.checked)}
                     className="text-blue-600 focus:ring-blue-500 rounded w-4 h-4"
                   />
-                  <span className="text-gray-300 text-base">{label}</span>
+                  <span className="text-gray-300 text-md">{label}</span>
                 </label>
               ))}
             </div>
@@ -265,7 +265,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
         <div className="space-y-8">
           {/* Clinical Observations */}
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-3">
+            <label className="block text-md font-medium text-gray-300 mb-3">
               Clinical Observations *
             </label>
             <textarea
@@ -274,13 +274,13 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
               required
               rows={8}
               placeholder="Document your clinical findings and observations..."
-              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none text-base"
+              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors resize-none text-md"
             />
           </div>
 
           {/* Physician Signature */}
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-3">
+            <label className="block text-md font-medium text-gray-300 mb-3">
               Physician Signature
             </label>
             <input
@@ -288,7 +288,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
               value={formData.physicianSignature}
               onChange={(e) => handleInputChange('physicianSignature', e.target.value)}
               placeholder="Enter physician name for signature"
-              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors text-base"
+              className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors text-md"
             />
           </div>
         </div>
@@ -302,7 +302,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
           {/* Completed By */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-base font-medium text-gray-300 mb-3">
+              <label className="block text-md font-medium text-gray-300 mb-3">
                 Completed By *
               </label>
               <input
@@ -311,11 +311,11 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
                 onChange={(e) => handleInputChange('completedBy', e.target.value)}
                 required
                 placeholder="Enter your name"
-                className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors text-base"
+                className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors text-md"
               />
             </div>
             <div>
-              <label className="block text-base font-medium text-gray-300 mb-3">
+              <label className="block text-md font-medium text-gray-300 mb-3">
                 Role *
               </label>
               <input
@@ -324,7 +324,7 @@ export default function EncounterNote({ patient, onBack, onSubmit }: EncounterNo
                 onChange={(e) => handleInputChange('completedByRole', e.target.value)}
                 required
                 placeholder="Enter your role/credentials"
-                className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors text-base"
+                className="w-full p-4 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 text-md focus:outline-none focus:border-blue-500 transition-colors text-md"
               />
             </div>
           </div>
