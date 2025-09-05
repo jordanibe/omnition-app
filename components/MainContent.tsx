@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { 
   Send, 
   Upload, 
@@ -25,16 +25,18 @@ interface MainContentProps {
   setModules?: (modules: any[]) => void
   activeModuleId?: string | null
   setActiveModuleId?: (id: string | null) => void
+  onResetToHome?: () => void
 }
 
 type ModuleType = 'none' | 'logistics' | 'analytics' | 'documentation'
 
-export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modules = [], setModules, activeModuleId, setActiveModuleId }: MainContentProps) {
+export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modules = [], setModules, activeModuleId, setActiveModuleId, onResetToHome }: MainContentProps) {
   const [selectedModule, setSelectedModule] = useState<'none' | 'logistics' | 'analytics' | 'documentation'>('none')
   const [message, setMessage] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [analyticsItems, setAnalyticsItems] = useState<string[]>([])
   const [analyticsInput, setAnalyticsInput] = useState('')
+  const [isThinking, setIsThinking] = useState(false)
   
   // Documentation module state
   const [selectedPatient, setSelectedPatient] = useState<any>(null)
@@ -44,6 +46,23 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
   const [isDocumentDropdownOpen, setIsDocumentDropdownOpen] = useState(false)
   const [patientSearchTerm, setPatientSearchTerm] = useState('')
   
+  // Reset to home state when activeModuleId becomes null
+  useEffect(() => {
+    if (activeModuleId === null) {
+      setSelectedModule('none')
+      setMessage('')
+      setAnalyticsInput('')
+      setAnalyticsItems([])
+      // Reset documentation state
+      setSelectedPatient(null)
+      setSelectedDocumentType(null)
+      setAskOmniText('')
+      setIsPatientDropdownOpen(false)
+      setIsDocumentDropdownOpen(false)
+      setPatientSearchTerm('')
+    }
+  }, [activeModuleId])
+
   // Title arrays for different modules
   const logisticsTitles = [
     "What can I perfect for you?",
@@ -85,23 +104,30 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
 
   const handleSend = () => {
     if (message.trim()) {
-      // Create a new logistics module and add it to the sidebar
-      const newModule = {
-        id: `log_${Date.now()}`,
-        name: `Logistics Optimization - ${new Date().toLocaleDateString()}`,
-        type: 'logistics' as const,
-        content: message,
-        createdAt: new Date()
-      }
-
-      if (setModules) {
-        setModules([...modules || [], newModule])
-      }
-      if (setActiveModuleId) {
-        setActiveModuleId(newModule.id)
-      }
+      // Show thinking state
+      setIsThinking(true)
       
-      setMessage('')
+      // Wait 4 seconds before creating the module
+      setTimeout(() => {
+        // Create a new logistics module and add it to the sidebar
+        const newModule = {
+          id: `log_${Date.now()}`,
+          name: 'Beacon Hill Scheduling Agent',
+          type: 'logistics' as const,
+          content: message,
+          createdAt: new Date()
+        }
+
+        if (setModules) {
+          setModules([...modules || [], newModule])
+        }
+        if (setActiveModuleId) {
+          setActiveModuleId(newModule.id)
+        }
+        
+        setMessage('')
+        setIsThinking(false)
+      }, 4000)
     }
   }
 
@@ -180,24 +206,32 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
       return
     }
 
-    // Create a new module and add it to the sidebar
-    const newModule = {
-      id: `doc_${Date.now()}`,
-      name: `${documentTypeLabels[selectedDocumentType]} - ${selectedPatient.name}`,
-      type: 'documentation' as const,
-      content: '',
-      createdAt: new Date(),
-      documentType: selectedDocumentType,
-      patientId: selectedPatient.id,
-      patientName: selectedPatient.name
-    }
+    // Show thinking state
+    setIsThinking(true)
+    
+    // Wait 4 seconds before creating the module
+    setTimeout(() => {
+      // Create a new module and add it to the sidebar
+      const newModule = {
+        id: `doc_${Date.now()}`,
+        name: `${documentTypeLabels[selectedDocumentType]} - ${selectedPatient.name}`,
+        type: 'documentation' as const,
+        content: '',
+        createdAt: new Date(),
+        documentType: selectedDocumentType,
+        patientId: selectedPatient.id,
+        patientName: selectedPatient.name
+      }
 
-    if (setModules) {
-      setModules([...modules || [], newModule])
-    }
-    if (setActiveModuleId) {
-      setActiveModuleId(newModule.id)
-    }
+      if (setModules) {
+        setModules([...modules || [], newModule])
+      }
+      if (setActiveModuleId) {
+        setActiveModuleId(newModule.id)
+      }
+      
+      setIsThinking(false)
+    }, 4000)
   }
 
   const togglePatientDropdown = () => {
@@ -309,12 +343,13 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
+                disabled={isThinking}
                 placeholder={`Describe your desired outcomes and key constraints. For example:
   - Assign patients to nurses to maximize the number of patients assigned.
   - Each patient's duration is in minutes.
   - Each nurse can only do one patient at a time.
   - Each nurse can do up to their max capacity in patients.`}
-                className="w-full p-4 pr-24 pb-16 bg-dark-900 border border-dark-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[180px]"
+                className="w-full p-4 pr-24 pb-16 bg-dark-900 border border-dark-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[180px] disabled:opacity-50 disabled:cursor-not-allowed"
                 rows={5}
               />
             
@@ -333,26 +368,38 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
               </button>
 
               <div className="flex items-center gap-2">
-                {/* Data Upload Button */}
+                {/* EPIC FHIR Connection Button */}
                 <button
                   onClick={handleDataUpload}
-                  className="flex items-center gap-2 px-3 py-2 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 bg-green-200 hover:bg-green-300 text-green-800 rounded-lg transition-colors"
                 >
-                  <Upload className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-400 text-sm">Data</span>
+                  <Upload className="w-4 h-4 text-green-700" />
+                  <span className="text-green-800 text-sm font-medium">Connected to EPIC FHIR</span>
                 </button>
 
                 {/* Send Button */}
                 <button
                   onClick={handleSend}
-                  disabled={!message.trim()}
+                  disabled={!message.trim() || isThinking}
                   className="p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-dark-700 disabled:cursor-not-allowed rounded-lg transition-colors"
                 >
-                  <Send className={`w-5 h-5 ${message.trim() ? 'text-white' : 'text-gray-500'}`} />
+                  <Send className={`w-5 h-5 ${message.trim() && !isThinking ? 'text-white' : 'text-gray-500'}`} />
                 </button>
               </div>
             </div>
           </div>
+          
+          {/* Thinking Indicator */}
+          {isThinking && (
+            <div className="mt-4 flex items-center justify-center gap-3 text-blue-400">
+              <span className="text-lg font-medium">Thinking</span>
+              <div className="flex gap-1">
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              </div>
+            </div>
+          )}
         </div>
         )}
 
@@ -424,7 +471,8 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
               <div className="relative flex-1">
                 <button
                   onClick={togglePatientDropdown}
-                  className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-left text-white hover:border-dark-600 transition-colors flex items-center justify-between"
+                  disabled={isThinking}
+                  className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-left text-white hover:border-dark-600 transition-colors flex items-center justify-between disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className={selectedPatient ? 'text-white' : 'text-gray-400'}>
                     {selectedPatient ? `${selectedPatient.name} (${selectedPatient.id})` : 'Select Patient...'}
@@ -469,7 +517,8 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
               <div className="relative flex-1">
                 <button
                   onClick={toggleDocumentDropdown}
-                  className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-left text-white hover:border-dark-600 transition-colors flex items-center justify-between"
+                  disabled={isThinking}
+                  className="w-full p-3 bg-dark-900 border border-dark-700 rounded-lg text-left text-white hover:border-dark-600 transition-colors flex items-center justify-between disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className={selectedDocumentType ? 'text-white' : 'text-gray-400'}>
                     {selectedDocumentType ? documentTypeLabels[selectedDocumentType] : 'Select Document Type...'}
@@ -496,7 +545,7 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
               {/* Submit Button */}
               <button
                 onClick={handleDocumentationSubmit}
-                disabled={!selectedPatient || !selectedDocumentType}
+                disabled={!selectedPatient || !selectedDocumentType || isThinking}
                 className="p-3 bg-blue-600 hover:bg-blue-700 disabled:bg-dark-700 disabled:cursor-not-allowed rounded-lg transition-colors flex-shrink-0"
               >
                 <Send className="w-5 h-5 text-white" />
@@ -510,8 +559,9 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
                   <textarea
                     value={askOmniText}
                     onChange={(e) => setAskOmniText(e.target.value)}
+                    disabled={isThinking}
                     placeholder="Describe what you need help with... For example: 'Help me write a progress note for this patient's recent fall' or 'What should I document for this patient's medication changes?'"
-                    className="w-full p-4 pr-16 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[120px]"
+                    className="w-full p-4 pr-16 bg-dark-900 border border-dark-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none min-h-[120px] disabled:opacity-50 disabled:cursor-not-allowed"
                     rows={4}
                   />
                   <div className="absolute bottom-4 right-4 flex items-center gap-2 text-gray-400 text-sm">
@@ -521,8 +571,18 @@ export default function MainContent({ clientName = CLIENT_NAME, clientLogo, modu
                 </div>
               </div>
             )}
-
-
+            
+            {/* Thinking Indicator for Documentation */}
+            {isThinking && selectedModule === 'documentation' && (
+              <div className="mt-4 flex items-center justify-center gap-3 text-blue-400">
+                <span className="text-lg font-medium">Thinking</span>
+                <div className="flex gap-1">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+              </div>
+            )}
           </div>
         )}
 

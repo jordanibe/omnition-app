@@ -1,4 +1,5 @@
 import { Personnel, Appointment, Schedule, OptimizationData } from './types'
+import { MetricCards } from './data/scheduleDataLoader'
 
 export const mockPersonnel: Personnel[] = [
   { id: '1', name: 'Elizabeth Turner', role: 'Nurse', type: 'nurse' },
@@ -37,13 +38,42 @@ export const mockOptimizationData: OptimizationData = {
     appointmentVolume: 85,
     providerBalance: 78,
     travelEfficiency: 92,
-    continuityOfCare: 88
+    continuityOfCare: 88,
+    workloadBalance: 82
   },
   baseline: {
     appointmentVolume: 62,
     providerBalance: 65,
     travelEfficiency: 65,
-    continuityOfCare: 70
+    continuityOfCare: 70,
+    workloadBalance: 58
+  }
+}
+
+export const mockMetricCards: MetricCards = {
+  appointmentsScheduled: {
+    value: 75,
+    change: '+37.1%',
+    changeType: 'positive',
+    label: 'Appointments Scheduled'
+  },
+  totalTravelTime: {
+    value: '620 min',
+    change: '-180 min',
+    changeType: 'positive',
+    label: 'Total Travel Time'
+  },
+  workloadBalance: {
+    value: '82%',
+    change: '+41.4%',
+    changeType: 'positive',
+    label: 'Workload Balance'
+  },
+  continuityOfCare: {
+    value: '88%',
+    change: '+25.7%',
+    changeType: 'positive',
+    label: 'Continuity of Care'
   }
 }
 

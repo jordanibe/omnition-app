@@ -120,18 +120,8 @@ export function createExampleMultiColorAssignments(
       const startTime = startHours + (startMinutes / 60)
       const endTime = endHours + (endMinutes / 60)
       
-      // Create different color patterns for different assignments
-      let colors: string[]
-      if (index % 3 === 0) {
-        // Light blue -> Navy -> Light blue (3pm-4pm example)
-        colors = ['#93c5fd', '#1d4ed8', '#93c5fd']
-      } else if (index % 3 === 1) {
-        // Green -> Dark green -> Green
-        colors = ['#86efac', '#166534', '#86efac']
-      } else {
-        // Purple -> Dark purple -> Purple
-        colors = ['#c4b5fd', '#581c87', '#c4b5fd']
-      }
+      // Use the same color for all assignments
+      const colors: string[] = ['#3b82f6', '#1e40af', '#3b82f6'] // Blue pattern for all blocks
       
       // Generate sub-events for multi-color effect
       const subEvents = generateSubEvents(startTime, endTime, colors)
@@ -146,6 +136,9 @@ export function createExampleMultiColorAssignments(
         color: subEvents[0].color, // Use first color for now
         data: {
           patientName: apt.patientName,
+          patientId: apt.patientId,
+          description: apt.description,
+          address: apt.address,
           startTime: apt.startTime,
           endTime: apt.endTime,
           personnelId: apt.personnelId,

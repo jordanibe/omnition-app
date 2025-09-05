@@ -8,10 +8,12 @@ export interface Personnel {
 export interface Appointment {
   id: string
   patientName: string
+  patientId?: string
   startTime: string
   endTime: string
   personnelId: string
-  type?: string
+  description?: string
+  address?: string
   duration?: number
 }
 
@@ -25,6 +27,7 @@ export interface OptimizationMetrics {
   providerBalance: number
   travelEfficiency: number
   continuityOfCare: number
+  workloadBalance: number
 }
 
 export interface OptimizationData {

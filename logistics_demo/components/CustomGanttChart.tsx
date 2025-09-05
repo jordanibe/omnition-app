@@ -211,26 +211,25 @@ export default function CustomGanttChart({
             <div className="tooltip-time">
               {formatTime(tooltip.content.startTime)} - {formatTime(tooltip.content.endTime)}
             </div>
-            {tooltip.content.data && Object.entries(tooltip.content.data).map(([key, value]) => {
-              // Skip rendering subEvents as they're objects
-              if (key === 'subEvents') return null
-              
-              // Format the value properly
-              let displayValue = value
-              if (typeof value === 'object' && value !== null) {
-                displayValue = JSON.stringify(value)
-              } else if (typeof value === 'string' || typeof value === 'number') {
-                displayValue = value
-              } else {
-                displayValue = String(value)
-              }
-              
-              return (
-                <div key={key} className="tooltip-data">
-                  {key}: {displayValue}
-                </div>
-              )
-            })}
+            {tooltip.content.data && (
+              <>
+                {tooltip.content.data.patientId && (
+                  <div className="tooltip-data">
+                    <strong>Patient ID:</strong> {tooltip.content.data.patientId}
+                  </div>
+                )}
+                {tooltip.content.data.description && (
+                  <div className="tooltip-data">
+                    <strong>Appt. Description:</strong> {tooltip.content.data.description}
+                  </div>
+                )}
+                {tooltip.content.data.address && (
+                  <div className="tooltip-data">
+                    <strong>Appt. Address:</strong> {tooltip.content.data.address}
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       )}
@@ -240,10 +239,12 @@ export default function CustomGanttChart({
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           color: white;
           height: auto;
-          min-height: 100%;
+          min-height: max-content;
           overflow-x: auto;
           overflow-y: visible;
           background-color: #1f2937;
+          display: flex;
+          flex-direction: column;
         }
 
         .gantt-header {
@@ -288,6 +289,8 @@ export default function CustomGanttChart({
 
         .gantt-body {
           display: flex;
+          flex: 1;
+          min-height: max-content;
         }
 
         .gantt-personnel-list {
@@ -395,7 +398,13 @@ export default function CustomGanttChart({
 
         .tooltip-data {
           color: #d1d5db;
-          margin-bottom: 2px;
+          margin-bottom: 4px;
+          line-height: 1.4;
+        }
+
+        .tooltip-data strong {
+          color: #f3f4f6;
+          font-weight: 600;
         }
       `}</style>
     </div>

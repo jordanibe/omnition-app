@@ -2,13 +2,14 @@
 
 import { useEffect, useRef } from 'react'
 import { Chart, ChartConfiguration, ChartData } from 'chart.js/auto'
-import { OptimizationData } from '../types'
+import { OptimizationData, MetricCards } from '../data/scheduleDataLoader'
 
 interface RadarChartProps {
   data: OptimizationData
+  metricCards: MetricCards
 }
 
-export default function RadarChart({ data }: RadarChartProps) {
+export default function RadarChart({ data, metricCards }: RadarChartProps) {
   const chartRef = useRef<HTMLCanvasElement>(null)
   const chartInstance = useRef<Chart | null>(null)
 
@@ -24,18 +25,20 @@ export default function RadarChart({ data }: RadarChartProps) {
         const chartData: ChartData<'radar'> = {
           labels: [
             'Appointment\nVolume',
-            'Provider\nBalance', 
+            // 'Provider\nBalance', 
             'Travel\nEfficiency',
-            'Continuity\nof Care'
+            'Continuity\nof Care',
+            'Workload\nBalance'
           ],
           datasets: [
             {
               label: 'Recommended',
               data: [
                 data.recommended.appointmentVolume,
-                data.recommended.providerBalance,
+                // data.recommended.providerBalance,
                 data.recommended.travelEfficiency,
-                data.recommended.continuityOfCare
+                data.recommended.continuityOfCare,
+                data.recommended.workloadBalance
               ],
               backgroundColor: 'rgba(59, 130, 246, 0.2)',
               borderColor: 'rgba(59, 130, 246, 0.8)',
@@ -49,9 +52,10 @@ export default function RadarChart({ data }: RadarChartProps) {
               label: 'Baseline',
               data: [
                 data.baseline.appointmentVolume,
-                data.baseline.providerBalance,
+                // data.baseline.providerBalance,
                 data.baseline.travelEfficiency,
-                data.baseline.continuityOfCare
+                data.baseline.continuityOfCare,
+                data.baseline.workloadBalance
               ],
               backgroundColor: 'rgba(239, 68, 68, 0.2)',
               borderColor: 'rgba(239, 68, 68, 0.8)',
@@ -94,11 +98,12 @@ export default function RadarChart({ data }: RadarChartProps) {
                   callback: function(value: any, index: number) {
                     const labels = [
                       'Appointment\nVolume',
-                      'Provider\nBalance', 
+                      // 'Provider\nBalance', 
                       'Travel\nEfficiency',
-                      'Continuity\nof Care'
+                      'Continuity\nof Care',
+                      'Workload\nBalance'
                     ]
-                    return labels[index].split('\n')
+                    return labels[index] ? labels[index].split('\n') : [value]
                   }
                 }
               }
@@ -125,19 +130,41 @@ export default function RadarChart({ data }: RadarChartProps) {
       </div>
       
       {/* Metric Cards */}
-      <div className="w-full flex gap-4">
+      <div className="w-full grid grid-cols-2 gap-3">
         {/* Appointments Card */}
-        <div className="flex-1 bg-dark-800 rounded-lg p-4 text-center">
-          <div className="text-2xl font-bold text-white mb-1">62</div>
-          <div className="text-sm text-green-400 mb-1">+27.2% from baseline</div>
-          <div className="text-xs text-gray-300">Appointments Scheduled</div>
+        <div className="bg-dark-800 rounded-lg p-3 text-center">
+          <div className="text-lg font-bold text-white mb-1">{metricCards.appointmentsScheduled.value}</div>
+          <div className={`text-xs mb-1 ${metricCards.appointmentsScheduled.changeType === 'positive' ? 'text-green-400' : 'text-red-400'}`}>
+            {metricCards.appointmentsScheduled.change}
+          </div>
+          <div className="text-xs text-gray-300">{metricCards.appointmentsScheduled.label}</div>
         </div>
         
         {/* Travel Time Card */}
-        <div className="flex-1 bg-dark-800 rounded-lg p-4 text-center">
-          <div className="text-2xl font-bold text-white mb-1">746 min</div>
-          <div className="text-sm text-green-400 mb-1">-151.3% from baseline</div>
-          <div className="text-xs text-gray-300">Total Travel Time</div>
+        <div className="bg-dark-800 rounded-lg p-3 text-center">
+          <div className="text-lg font-bold text-white mb-1">{metricCards.totalTravelTime.value}</div>
+          <div className={`text-xs mb-1 ${metricCards.totalTravelTime.changeType === 'positive' ? 'text-green-400' : 'text-red-400'}`}>
+            {metricCards.totalTravelTime.change}
+          </div>
+          <div className="text-xs text-gray-300">{metricCards.totalTravelTime.label}</div>
+        </div>
+
+        {/* Workload Balance Card */}
+        <div className="bg-dark-800 rounded-lg p-3 text-center">
+          <div className="text-lg font-bold text-white mb-1">{metricCards.workloadBalance.value}</div>
+          <div className={`text-xs mb-1 ${metricCards.workloadBalance.changeType === 'positive' ? 'text-green-400' : 'text-red-400'}`}>
+            {metricCards.workloadBalance.change}
+          </div>
+          <div className="text-xs text-gray-300">{metricCards.workloadBalance.label}</div>
+        </div>
+
+        {/* Continuity of Care Card */}
+        <div className="bg-dark-800 rounded-lg p-3 text-center">
+          <div className="text-lg font-bold text-white mb-1">{metricCards.continuityOfCare.value}</div>
+          <div className={`text-xs mb-1 ${metricCards.continuityOfCare.changeType === 'positive' ? 'text-green-400' : 'text-red-400'}`}>
+            {metricCards.continuityOfCare.change}
+          </div>
+          <div className="text-xs text-gray-300">{metricCards.continuityOfCare.label}</div>
         </div>
       </div>
     </div>

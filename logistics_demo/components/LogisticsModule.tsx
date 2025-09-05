@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ChevronLeft, ArrowRight } from 'lucide-react'
 import GanttChart from './GanttChart'
 import RadarChart from './RadarChart'
-import { mockPersonnel, mockAppointments, mockOptimizationData } from '../mockData'
+import { mockPersonnel, mockAppointments, mockOptimizationData, mockMetricCards } from '../mockData'
 
 interface LogisticsModuleProps {
   moduleTitle: string
@@ -84,7 +84,7 @@ export default function LogisticsModule({ moduleTitle, onBackToHome }: Logistics
 
         {/* Right Side - Radar Chart Panel */}
         <div className="w-80 bg-dark-900 border border-dark-700 rounded-2xl overflow-hidden">
-          <RadarChart data={mockOptimizationData} />
+          <RadarChart data={mockOptimizationData} metricCards={mockMetricCards} />
         </div>
       </div>
     </div>

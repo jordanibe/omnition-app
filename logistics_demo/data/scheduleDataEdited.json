@@ -8,19 +8,13 @@
     },
     {
       "id": "2",
-      "name": "Tara Meka",
-      "role": "Nurse",
+      "name": "Jordan Ibe",
+      "role": "Temp. Nurse",
       "type": "nurse"
     },
     {
       "id": "3",
       "name": "Sophia Perez",
-      "role": "Therapist",
-      "type": "other"
-    },
-    {
-      "id": "4",
-      "name": "Jared Black",
       "role": "Therapist",
       "type": "other"
     },
@@ -127,17 +121,6 @@
           "duration": 90
         },
         {
-          "id": "1_2025-09-01_6",
-          "patientName": "Donald Hernandez",
-          "patientId": "Z001261",
-          "startTime": "16:00",
-          "endTime": "17:00",
-          "personnelId": "1",
-          "description": "Telehealth consultation setup",
-          "address": "7354 Azalea Boulevard",
-          "duration": 60
-        },
-        {
           "id": "1_2025-09-01_7",
           "patientName": "Jessica Martin",
           "patientId": "Z001248",
@@ -204,17 +187,6 @@
           "duration": 60
         },
         {
-          "id": "2_2025-09-01_5",
-          "patientName": "Anthony Walker",
-          "patientId": "Z001257",
-          "startTime": "13:19",
-          "endTime": "14:19",
-          "personnelId": "2",
-          "description": "Physical therapy evaluation and treatment",
-          "address": "6472 Sage Court",
-          "duration": 60
-        },
-        {
           "id": "2_2025-09-01_6",
           "patientName": "Lisa Rodriguez",
           "patientId": "Z001254",
@@ -248,17 +220,6 @@
           "duration": 90
         },
         {
-          "id": "3_2025-09-01_1",
-          "patientName": "Betty Hall",
-          "patientId": "Z001258",
-          "startTime": "05:41",
-          "endTime": "07:11",
-          "personnelId": "3",
-          "description": "Discharge planning and coordination",
-          "address": "2134 Cedar Lane",
-          "duration": 90
-        },
-        {
           "id": "3_2025-09-01_2",
           "patientName": "Betty Hall",
           "patientId": "Z001258",
@@ -278,17 +239,6 @@
           "personnelId": "3",
           "description": "Diabetes management and glucose testing",
           "address": "5083 Camellia Lane",
-          "duration": 90
-        },
-        {
-          "id": "3_2025-09-01_4",
-          "patientName": "Betty Hall",
-          "patientId": "Z001258",
-          "startTime": "12:26",
-          "endTime": "13:56",
-          "personnelId": "3",
-          "description": "Medication administration and monitoring",
-          "address": "8024 Cypress Street",
           "duration": 90
         },
         {
@@ -322,72 +272,6 @@
           "personnelId": "3",
           "description": "Initial nursing assessment and care plan development",
           "address": "9185 Rosemary Street",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-01_1",
-          "patientName": "Barbara Thomas",
-          "patientId": "Z001244",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "4",
-          "description": "Transitional care planning",
-          "address": "6148 Lime Avenue",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-01_2",
-          "patientName": "Brian Baker",
-          "patientId": "Z001269",
-          "startTime": "09:45",
-          "endTime": "10:45",
-          "personnelId": "4",
-          "description": "Medication reconciliation and education",
-          "address": "1357 Poplar Place",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-01_3",
-          "patientName": "Patricia Brown",
-          "patientId": "Z001237",
-          "startTime": "11:19",
-          "endTime": "12:49",
-          "personnelId": "4",
-          "description": "Mental health assessment and counseling",
-          "address": "4682 Dogwood Lane",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-01_4",
-          "patientName": "Barbara Thomas",
-          "patientId": "Z001244",
-          "startTime": "13:47",
-          "endTime": "15:17",
-          "personnelId": "4",
-          "description": "Initial nursing assessment and care plan development",
-          "address": "5127 Dill Street",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-01_5",
-          "patientName": "Patricia Brown",
-          "patientId": "Z001237",
-          "startTime": "15:49",
-          "endTime": "17:19",
-          "personnelId": "4",
-          "description": "Cardiac rehabilitation and monitoring",
-          "address": "4815 Grape Court",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-01_6",
-          "patientName": "Thomas Thompson",
-          "patientId": "Z001249",
-          "startTime": "17:39",
-          "endTime": "19:09",
-          "personnelId": "4",
-          "description": "Family conference and education",
-          "address": "4815 Grape Court",
           "duration": 90
         },
         {
@@ -578,17 +462,6 @@
           "duration": 60
         },
         {
-          "id": "7_2025-09-01_4",
-          "patientName": "Susan White",
-          "patientId": "Z001246",
-          "startTime": "11:27",
-          "endTime": "12:27",
-          "personnelId": "7",
-          "description": "Discharge planning and coordination",
-          "address": "9371 Peach Street",
-          "duration": 60
-        },
-        {
           "id": "7_2025-09-01_5",
           "patientName": "Mary Johnson",
           "patientId": "Z001235",
@@ -619,17 +492,6 @@
           "personnelId": "7",
           "description": "Medical equipment delivery and setup",
           "address": "9371 Peach Street",
-          "duration": 90
-        },
-        {
-          "id": "7_2025-09-01_8",
-          "patientName": "Anthony Walker",
-          "patientId": "Z001257",
-          "startTime": "19:02",
-          "endTime": "20:32",
-          "personnelId": "7",
-          "description": "Social services consultation",
-          "address": "7062 Plum Road",
           "duration": 90
         },
         {
@@ -677,17 +539,6 @@
           "duration": 60
         },
         {
-          "id": "8_2025-09-01_5",
-          "patientName": "Patricia Brown",
-          "patientId": "Z001237",
-          "startTime": "11:52",
-          "endTime": "13:22",
-          "personnelId": "8",
-          "description": "Mental health assessment and counseling",
-          "address": "4321 Ash Street",
-          "duration": 90
-        },
-        {
           "id": "8_2025-09-01_6",
           "patientName": "Elizabeth Taylor",
           "patientId": "Z001242",
@@ -710,17 +561,6 @@
           "duration": 60
         },
         {
-          "id": "8_2025-09-01_8",
-          "patientName": "Richard Jackson",
-          "patientId": "Z001245",
-          "startTime": "18:13",
-          "endTime": "19:13",
-          "personnelId": "8",
-          "description": "Insurance benefits verification",
-          "address": "6157 Palm Avenue",
-          "duration": 60
-        },
-        {
           "id": "9_2025-09-01_1",
           "patientName": "Mark Allen",
           "patientId": "Z001259",
@@ -730,17 +570,6 @@
           "description": "Care plan review and updates",
           "address": "901 Willow Way",
           "duration": 60
-        },
-        {
-          "id": "9_2025-09-01_2",
-          "patientName": "Mary Johnson",
-          "patientId": "Z001235",
-          "startTime": "08:49",
-          "endTime": "10:19",
-          "personnelId": "9",
-          "description": "Transitional care planning",
-          "address": "3704 Berry Place",
-          "duration": 90
         },
         {
           "id": "9_2025-09-01_3",
@@ -853,17 +682,6 @@
           "duration": 60
         },
         {
-          "id": "11_2025-09-01_1",
-          "patientName": "Thomas Thompson",
-          "patientId": "Z001249",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "11",
-          "description": "Transitional care planning",
-          "address": "7286 Daisy Street",
-          "duration": 90
-        },
-        {
           "id": "11_2025-09-01_2",
           "patientName": "Daniel Clark",
           "patientId": "Z001253",
@@ -935,17 +753,6 @@
       "date": "2025-09-02",
       "appointments": [
         {
-          "id": "1_2025-09-02_1",
-          "patientName": "Jennifer Davis",
-          "patientId": "Z001238",
-          "startTime": "05:00",
-          "endTime": "06:00",
-          "personnelId": "1",
-          "description": "Specialty referral coordination",
-          "address": "1245 Maple Street",
-          "duration": 60
-        },
-        {
           "id": "1_2025-09-02_2",
           "patientName": "Patricia Brown",
           "patientId": "Z001237",
@@ -954,17 +761,6 @@
           "personnelId": "1",
           "description": "Caregiver training and support",
           "address": "1590 Sycamore Drive",
-          "duration": 60
-        },
-        {
-          "id": "1_2025-09-02_3",
-          "patientName": "Elizabeth Taylor",
-          "patientId": "Z001242",
-          "startTime": "09:00",
-          "endTime": "10:00",
-          "personnelId": "1",
-          "description": "Blood pressure monitoring and medication review",
-          "address": "6789 Spruce Court",
           "duration": 60
         },
         {
@@ -977,17 +773,6 @@
           "description": "Palliative care consultation",
           "address": "9642 Iris Drive",
           "duration": 60
-        },
-        {
-          "id": "1_2025-09-02_5",
-          "patientName": "Barbara Thomas",
-          "patientId": "Z001244",
-          "startTime": "12:27",
-          "endTime": "13:57",
-          "personnelId": "1",
-          "description": "Post-surgical follow-up and incision care",
-          "address": "1590 Sycamore Drive",
-          "duration": 90
         },
         {
           "id": "1_2025-09-02_6",
@@ -1023,17 +808,6 @@
           "duration": 60
         },
         {
-          "id": "2_2025-09-02_1",
-          "patientName": "Jessica Martin",
-          "patientId": "Z001248",
-          "startTime": "05:00",
-          "endTime": "06:00",
-          "personnelId": "2",
-          "description": "Pain management consultation and treatment plan",
-          "address": "1483 Cherry Lane",
-          "duration": 60
-        },
-        {
           "id": "2_2025-09-02_2",
           "patientName": "Mark Allen",
           "patientId": "Z001259",
@@ -1043,17 +817,6 @@
           "description": "Nutrition counseling and dietary planning",
           "address": "4297 Sunflower Drive",
           "duration": 90
-        },
-        {
-          "id": "2_2025-09-02_3",
-          "patientName": "Ruth Adams",
-          "patientId": "Z001268",
-          "startTime": "08:57",
-          "endTime": "09:57",
-          "personnelId": "2",
-          "description": "Transportation coordination",
-          "address": "4682 Dogwood Lane",
-          "duration": 60
         },
         {
           "id": "2_2025-09-02_4",
@@ -1188,83 +951,6 @@
           "duration": 90
         },
         {
-          "id": "4_2025-09-02_1",
-          "patientName": "Robert Wilson",
-          "patientId": "Z001236",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "4",
-          "description": "Cognitive assessment and memory care planning",
-          "address": "2134 Cedar Lane",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-02_2",
-          "patientName": "Helen Lee",
-          "patientId": "Z001256",
-          "startTime": "06:50",
-          "endTime": "07:50",
-          "personnelId": "4",
-          "description": "Transportation coordination",
-          "address": "2937 Mint Drive",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-02_3",
-          "patientName": "Donald Hernandez",
-          "patientId": "Z001261",
-          "startTime": "08:13",
-          "endTime": "09:43",
-          "personnelId": "4",
-          "description": "Mobility assessment and assistive device training",
-          "address": "1065 Violet Lane",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-02_4",
-          "patientName": "David Anderson",
-          "patientId": "Z001243",
-          "startTime": "10:24",
-          "endTime": "11:54",
-          "personnelId": "4",
-          "description": "Symptom management and comfort care",
-          "address": "7354 Azalea Boulevard",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-02_5",
-          "patientName": "Brian Baker",
-          "patientId": "Z001269",
-          "startTime": "12:18",
-          "endTime": "13:18",
-          "personnelId": "4",
-          "description": "Infection control and prevention education",
-          "address": "1357 Poplar Place",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-02_6",
-          "patientName": "Susan White",
-          "patientId": "Z001246",
-          "startTime": "13:48",
-          "endTime": "15:18",
-          "personnelId": "4",
-          "description": "Home safety evaluation and recommendations",
-          "address": "5127 Dill Street",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-02_7",
-          "patientName": "Helen Lee",
-          "patientId": "Z001256",
-          "startTime": "15:56",
-          "endTime": "17:26",
-          "personnelId": "4",
-          "description": "Emergency contact information update",
-          "address": "5720 Rose Boulevard",
-          "duration": 90
-        },
-        {
           "id": "5_2025-09-02_1",
           "patientName": "Michelle Carter",
           "patientId": "Z001272",
@@ -1306,17 +992,6 @@
           "personnelId": "5",
           "description": "Specialty referral coordination",
           "address": "1357 Poplar Place",
-          "duration": 90
-        },
-        {
-          "id": "5_2025-09-02_5",
-          "patientName": "Jennifer Davis",
-          "patientId": "Z001238",
-          "startTime": "15:35",
-          "endTime": "17:05",
-          "personnelId": "5",
-          "description": "Diabetes management and glucose testing",
-          "address": "8024 Cypress Street",
           "duration": 90
         },
         {
@@ -1373,17 +1048,6 @@
           "description": "Diabetes management and glucose testing",
           "address": "9371 Peach Street",
           "duration": 90
-        },
-        {
-          "id": "6_2025-09-02_4",
-          "patientName": "Dorothy Young",
-          "patientId": "Z001260",
-          "startTime": "11:09",
-          "endTime": "12:09",
-          "personnelId": "6",
-          "description": "Prescription pickup and delivery",
-          "address": "9185 Rosemary Street",
-          "duration": 60
         },
         {
           "id": "6_2025-09-02_5",
@@ -1485,17 +1149,6 @@
           "duration": 60
         },
         {
-          "id": "7_2025-09-02_7",
-          "patientName": "John Anderson",
-          "patientId": "Z001234",
-          "startTime": "18:25",
-          "endTime": "19:25",
-          "personnelId": "7",
-          "description": "Infection control and prevention education",
-          "address": "1065 Violet Lane",
-          "duration": 60
-        },
-        {
           "id": "8_2025-09-02_1",
           "patientName": "Joshua Green",
           "patientId": "Z001267",
@@ -1538,17 +1191,6 @@
           "description": "Family conference and education",
           "address": "8394 Cilantro Road",
           "duration": 60
-        },
-        {
-          "id": "8_2025-09-02_5",
-          "patientName": "Jennifer Davis",
-          "patientId": "Z001238",
-          "startTime": "12:32",
-          "endTime": "14:02",
-          "personnelId": "8",
-          "description": "Skin integrity assessment and prevention care",
-          "address": "3175 Orchid Court",
-          "duration": 90
         },
         {
           "id": "8_2025-09-02_6",
@@ -1603,17 +1245,6 @@
           "personnelId": "9",
           "description": "Symptom management and comfort care",
           "address": "2937 Mint Drive",
-          "duration": 60
-        },
-        {
-          "id": "9_2025-09-02_3",
-          "patientName": "Christopher Martinez",
-          "patientId": "Z001251",
-          "startTime": "09:23",
-          "endTime": "10:23",
-          "personnelId": "9",
-          "description": "Nutrition counseling and dietary planning",
-          "address": "1483 Cherry Lane",
           "duration": 60
         },
         {
@@ -1768,17 +1399,6 @@
           "personnelId": "11",
           "description": "Transportation coordination",
           "address": "2901 Gardenia Street",
-          "duration": 90
-        },
-        {
-          "id": "11_2025-09-02_3",
-          "patientName": "Lisa Rodriguez",
-          "patientId": "Z001254",
-          "startTime": "10:15",
-          "endTime": "11:45",
-          "personnelId": "11",
-          "description": "Mobility assessment and assistive device training",
-          "address": "5720 Rose Boulevard",
           "duration": 90
         },
         {
@@ -1941,17 +1561,6 @@
           "duration": 60
         },
         {
-          "id": "2_2025-09-03_3",
-          "patientName": "Lisa Rodriguez",
-          "patientId": "Z001254",
-          "startTime": "07:39",
-          "endTime": "08:39",
-          "personnelId": "2",
-          "description": "Diabetes management and glucose testing",
-          "address": "6148 Lime Avenue",
-          "duration": 60
-        },
-        {
           "id": "2_2025-09-03_4",
           "patientName": "Kevin Nelson",
           "patientId": "Z001271",
@@ -1983,17 +1592,6 @@
           "description": "Nutrition counseling and dietary planning",
           "address": "6472 Sage Court",
           "duration": 60
-        },
-        {
-          "id": "2_2025-09-03_7",
-          "patientName": "Dorothy Young",
-          "patientId": "Z001260",
-          "startTime": "15:42",
-          "endTime": "17:12",
-          "personnelId": "2",
-          "description": "Cardiac rehabilitation and monitoring",
-          "address": "2134 Cedar Lane",
-          "duration": 90
         },
         {
           "id": "2_2025-09-03_8",
@@ -2040,17 +1638,6 @@
           "duration": 90
         },
         {
-          "id": "3_2025-09-03_3",
-          "patientName": "Linda Wilson",
-          "patientId": "Z001240",
-          "startTime": "09:20",
-          "endTime": "10:50",
-          "personnelId": "3",
-          "description": "Cognitive assessment and memory care planning",
-          "address": "901 Willow Way",
-          "duration": 90
-        },
-        {
           "id": "3_2025-09-03_4",
           "patientName": "Mark Allen",
           "patientId": "Z001259",
@@ -2084,94 +1671,6 @@
           "duration": 90
         },
         {
-          "id": "3_2025-09-03_7",
-          "patientName": "Kevin Nelson",
-          "patientId": "Z001271",
-          "startTime": "18:46",
-          "endTime": "19:46",
-          "personnelId": "3",
-          "description": "Blood pressure monitoring and medication review",
-          "address": "2468 Hickory Hill",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-03_1",
-          "patientName": "Michelle Carter",
-          "patientId": "Z001272",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "4",
-          "description": "Respiratory therapy and breathing exercises",
-          "address": "8024 Cypress Street",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-03_2",
-          "patientName": "Donna Lopez",
-          "patientId": "Z001264",
-          "startTime": "06:55",
-          "endTime": "07:55",
-          "personnelId": "4",
-          "description": "Insurance authorization and documentation",
-          "address": "9371 Peach Street",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-03_3",
-          "patientName": "Mary Johnson",
-          "patientId": "Z001235",
-          "startTime": "08:40",
-          "endTime": "10:10",
-          "personnelId": "4",
-          "description": "Insurance authorization and documentation",
-          "address": "5127 Dill Street",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-03_4",
-          "patientName": "Sharon Gonzalez",
-          "patientId": "Z001270",
-          "startTime": "11:37",
-          "endTime": "12:37",
-          "personnelId": "4",
-          "description": "Infection control and prevention education",
-          "address": "7354 Azalea Boulevard",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-03_5",
-          "patientName": "Jessica Martin",
-          "patientId": "Z001248",
-          "startTime": "13:20",
-          "endTime": "14:50",
-          "personnelId": "4",
-          "description": "Medication compliance assessment",
-          "address": "9753 Chestnut Avenue",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-03_6",
-          "patientName": "Dorothy Young",
-          "patientId": "Z001260",
-          "startTime": "15:32",
-          "endTime": "17:02",
-          "personnelId": "4",
-          "description": "Home safety evaluation and recommendations",
-          "address": "1357 Poplar Place",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-03_7",
-          "patientName": "Thomas Thompson",
-          "patientId": "Z001249",
-          "startTime": "17:48",
-          "endTime": "19:18",
-          "personnelId": "4",
-          "description": "Rehabilitation progress evaluation",
-          "address": "2901 Gardenia Street",
-          "duration": 90
-        },
-        {
           "id": "5_2025-09-03_1",
           "patientName": "Steven Wright",
           "patientId": "Z001263",
@@ -2191,17 +1690,6 @@
           "personnelId": "5",
           "description": "Care plan review and updates",
           "address": "892 Oak Avenue",
-          "duration": 90
-        },
-        {
-          "id": "5_2025-09-03_3",
-          "patientName": "Elizabeth Taylor",
-          "patientId": "Z001242",
-          "startTime": "08:50",
-          "endTime": "10:20",
-          "personnelId": "5",
-          "description": "Medical equipment delivery and setup",
-          "address": "1483 Cherry Lane",
           "duration": 90
         },
         {
@@ -2304,17 +1792,6 @@
           "duration": 60
         },
         {
-          "id": "6_2025-09-03_7",
-          "patientName": "Donald Hernandez",
-          "patientId": "Z001261",
-          "startTime": "18:41",
-          "endTime": "19:41",
-          "personnelId": "6",
-          "description": "Equipment setup and maintenance",
-          "address": "3805 Thyme Place",
-          "duration": 60
-        },
-        {
           "id": "7_2025-09-03_1",
           "patientName": "Betty Hall",
           "patientId": "Z001258",
@@ -2346,17 +1823,6 @@
           "description": "Transportation coordination",
           "address": "4682 Dogwood Lane",
           "duration": 90
-        },
-        {
-          "id": "7_2025-09-03_4",
-          "patientName": "William Moore",
-          "patientId": "Z001241",
-          "startTime": "12:49",
-          "endTime": "13:49",
-          "personnelId": "7",
-          "description": "Infection control and prevention education",
-          "address": "1065 Violet Lane",
-          "duration": 60
         },
         {
           "id": "7_2025-09-03_5",
@@ -2480,17 +1946,6 @@
           "duration": 60
         },
         {
-          "id": "9_2025-09-03_2",
-          "patientName": "Carol Scott",
-          "patientId": "Z001266",
-          "startTime": "06:59",
-          "endTime": "08:29",
-          "personnelId": "9",
-          "description": "Wound care dressing change and assessment",
-          "address": "1357 Poplar Place",
-          "duration": 90
-        },
-        {
           "id": "9_2025-09-03_3",
           "patientName": "Susan White",
           "patientId": "Z001246",
@@ -2544,28 +1999,6 @@
           "description": "Hospice care coordination",
           "address": "5127 Dill Street",
           "duration": 60
-        },
-        {
-          "id": "10_2025-09-03_1",
-          "patientName": "David Anderson",
-          "patientId": "Z001243",
-          "startTime": "05:00",
-          "endTime": "06:00",
-          "personnelId": "10",
-          "description": "Initial nursing assessment and care plan development",
-          "address": "5083 Camellia Lane",
-          "duration": 60
-        },
-        {
-          "id": "10_2025-09-03_2",
-          "patientName": "Jennifer Davis",
-          "patientId": "Z001238",
-          "startTime": "06:39",
-          "endTime": "08:09",
-          "personnelId": "10",
-          "description": "Caregiver training and support",
-          "address": "1357 Poplar Place",
-          "duration": 90
         },
         {
           "id": "10_2025-09-03_3",
@@ -2705,17 +2138,6 @@
           "duration": 60
         },
         {
-          "id": "1_2025-09-04_3",
-          "patientName": "Steven Wright",
-          "patientId": "Z001263",
-          "startTime": "08:39",
-          "endTime": "09:39",
-          "personnelId": "1",
-          "description": "Social services consultation",
-          "address": "789 Elm Drive",
-          "duration": 60
-        },
-        {
           "id": "1_2025-09-04_4",
           "patientName": "Betty Hall",
           "patientId": "Z001258",
@@ -2725,17 +2147,6 @@
           "description": "Care plan review and updates",
           "address": "4321 Ash Street",
           "duration": 60
-        },
-        {
-          "id": "1_2025-09-04_5",
-          "patientName": "Mark Allen",
-          "patientId": "Z001259",
-          "startTime": "12:04",
-          "endTime": "13:34",
-          "personnelId": "1",
-          "description": "Palliative care consultation",
-          "address": "2901 Gardenia Street",
-          "duration": 90
         },
         {
           "id": "1_2025-09-04_6",
@@ -2758,17 +2169,6 @@
           "description": "Laboratory specimen collection",
           "address": "2134 Cedar Lane",
           "duration": 90
-        },
-        {
-          "id": "1_2025-09-04_8",
-          "patientName": "Brian Baker",
-          "patientId": "Z001269",
-          "startTime": "18:55",
-          "endTime": "19:55",
-          "personnelId": "1",
-          "description": "Skin integrity assessment and prevention care",
-          "address": "5678 Birch Boulevard",
-          "duration": 60
         },
         {
           "id": "2_2025-09-04_1",
@@ -2903,17 +2303,6 @@
           "duration": 90
         },
         {
-          "id": "3_2025-09-04_6",
-          "patientName": "Kenneth Hill",
-          "patientId": "Z001265",
-          "startTime": "13:53",
-          "endTime": "15:23",
-          "personnelId": "3",
-          "description": "Symptom management and comfort care",
-          "address": "8024 Cypress Street",
-          "duration": 90
-        },
-        {
           "id": "3_2025-09-04_7",
           "patientName": "Robert Wilson",
           "patientId": "Z001236",
@@ -2922,105 +2311,6 @@
           "personnelId": "3",
           "description": "Medical equipment delivery and setup",
           "address": "8394 Cilantro Road",
-          "duration": 90
-        },
-        {
-          "id": "3_2025-09-04_8",
-          "patientName": "Joshua Green",
-          "patientId": "Z001267",
-          "startTime": "18:12",
-          "endTime": "19:42",
-          "personnelId": "3",
-          "description": "Medication reconciliation and education",
-          "address": "7938 Basil Boulevard",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-04_1",
-          "patientName": "Christopher Martinez",
-          "patientId": "Z001251",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "4",
-          "description": "Vital signs monitoring and documentation",
-          "address": "2937 Mint Drive",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-04_2",
-          "patientName": "John Anderson",
-          "patientId": "Z001234",
-          "startTime": "06:52",
-          "endTime": "07:52",
-          "personnelId": "4",
-          "description": "Mental health assessment and counseling",
-          "address": "2937 Mint Drive",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-04_3",
-          "patientName": "Jessica Martin",
-          "patientId": "Z001248",
-          "startTime": "08:55",
-          "endTime": "09:55",
-          "personnelId": "4",
-          "description": "Medical equipment delivery and setup",
-          "address": "5127 Dill Street",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-04_4",
-          "patientName": "Lisa Rodriguez",
-          "patientId": "Z001254",
-          "startTime": "10:10",
-          "endTime": "11:10",
-          "personnelId": "4",
-          "description": "Respiratory therapy and breathing exercises",
-          "address": "6472 Sage Court",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-04_5",
-          "patientName": "Mary Johnson",
-          "patientId": "Z001235",
-          "startTime": "11:51",
-          "endTime": "12:51",
-          "personnelId": "4",
-          "description": "Transportation coordination",
-          "address": "5926 Apple Drive",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-04_6",
-          "patientName": "John Anderson",
-          "patientId": "Z001234",
-          "startTime": "13:13",
-          "endTime": "14:43",
-          "personnelId": "4",
-          "description": "Initial nursing assessment and care plan development",
-          "address": "2468 Hickory Hill",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-04_7",
-          "patientName": "Steven Wright",
-          "patientId": "Z001263",
-          "startTime": "15:08",
-          "endTime": "16:08",
-          "personnelId": "4",
-          "description": "Social services consultation",
-          "address": "7531 Magnolia Road",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-04_8",
-          "patientName": "Donald Hernandez",
-          "patientId": "Z001261",
-          "startTime": "16:43",
-          "endTime": "18:13",
-          "personnelId": "4",
-          "description": "Vital signs monitoring and documentation",
-          "address": "7938 Basil Boulevard",
           "duration": 90
         },
         {
@@ -3066,17 +2356,6 @@
           "description": "Medication administration and monitoring",
           "address": "8642 Walnut Street",
           "duration": 60
-        },
-        {
-          "id": "5_2025-09-04_5",
-          "patientName": "Dorothy Young",
-          "patientId": "Z001260",
-          "startTime": "15:37",
-          "endTime": "17:07",
-          "personnelId": "5",
-          "description": "Caregiver training and support",
-          "address": "892 Oak Avenue",
-          "duration": 90
         },
         {
           "id": "5_2025-09-04_6",
@@ -3178,17 +2457,6 @@
           "duration": 60
         },
         {
-          "id": "7_2025-09-04_2",
-          "patientName": "Jennifer Davis",
-          "patientId": "Z001238",
-          "startTime": "08:47",
-          "endTime": "09:47",
-          "personnelId": "7",
-          "description": "Medication reconciliation and education",
-          "address": "4682 Dogwood Lane",
-          "duration": 60
-        },
-        {
           "id": "7_2025-09-04_3",
           "patientName": "Christopher Martinez",
           "patientId": "Z001251",
@@ -3198,17 +2466,6 @@
           "description": "Medication reconciliation and education",
           "address": "6148 Lime Avenue",
           "duration": 90
-        },
-        {
-          "id": "7_2025-09-04_4",
-          "patientName": "Kevin Nelson",
-          "patientId": "Z001271",
-          "startTime": "15:51",
-          "endTime": "16:51",
-          "personnelId": "7",
-          "description": "Advance directive discussion",
-          "address": "6528 Jasmine Place",
-          "duration": 60
         },
         {
           "id": "7_2025-09-04_5",
@@ -3387,17 +2644,6 @@
           "duration": 60
         },
         {
-          "id": "10_2025-09-04_1",
-          "patientName": "Jennifer Davis",
-          "patientId": "Z001238",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "10",
-          "description": "Cardiac rehabilitation and monitoring",
-          "address": "8259 Lemon Street",
-          "duration": 90
-        },
-        {
           "id": "10_2025-09-04_2",
           "patientName": "Nancy Robinson",
           "patientId": "Z001252",
@@ -3508,17 +2754,6 @@
           "duration": 90
         },
         {
-          "id": "11_2025-09-04_4",
-          "patientName": "Donald Hernandez",
-          "patientId": "Z001261",
-          "startTime": "12:57",
-          "endTime": "14:27",
-          "personnelId": "11",
-          "description": "Prescription pickup and delivery",
-          "address": "8024 Cypress Street",
-          "duration": 90
-        },
-        {
           "id": "11_2025-09-04_5",
           "patientName": "John Anderson",
           "patientId": "Z001234",
@@ -3546,17 +2781,6 @@
       "date": "2025-09-05",
       "appointments": [
         {
-          "id": "1_2025-09-05_1",
-          "patientName": "Joshua Green",
-          "patientId": "Z001267",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "1",
-          "description": "Mobility assessment and assistive device training",
-          "address": "7531 Magnolia Road",
-          "duration": 90
-        },
-        {
           "id": "1_2025-09-05_2",
           "patientName": "Mary Johnson",
           "patientId": "Z001235",
@@ -3579,17 +2803,6 @@
           "duration": 90
         },
         {
-          "id": "1_2025-09-05_4",
-          "patientName": "Sharon Gonzalez",
-          "patientId": "Z001270",
-          "startTime": "11:24",
-          "endTime": "12:24",
-          "personnelId": "1",
-          "description": "Behavioral intervention planning",
-          "address": "1640 Lavender Avenue",
-          "duration": 60
-        },
-        {
           "id": "1_2025-09-05_5",
           "patientName": "Thomas Thompson",
           "patientId": "Z001249",
@@ -3610,17 +2823,6 @@
           "description": "Advance directive discussion",
           "address": "9371 Peach Street",
           "duration": 60
-        },
-        {
-          "id": "1_2025-09-05_7",
-          "patientName": "Christopher Martinez",
-          "patientId": "Z001251",
-          "startTime": "16:11",
-          "endTime": "17:41",
-          "personnelId": "1",
-          "description": "Mobility assessment and assistive device training",
-          "address": "5127 Dill Street",
-          "duration": 90
         },
         {
           "id": "1_2025-09-05_8",
@@ -3788,94 +2990,6 @@
           "duration": 90
         },
         {
-          "id": "4_2025-09-05_1",
-          "patientName": "Edward Mitchell",
-          "patientId": "Z001273",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "4",
-          "description": "Mental health assessment and counseling",
-          "address": "7938 Basil Boulevard",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-05_2",
-          "patientName": "Robert Wilson",
-          "patientId": "Z001236",
-          "startTime": "06:49",
-          "endTime": "07:49",
-          "personnelId": "4",
-          "description": "Initial nursing assessment and care plan development",
-          "address": "3456 Pine Road",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-05_3",
-          "patientName": "Jessica Martin",
-          "patientId": "Z001248",
-          "startTime": "08:41",
-          "endTime": "09:41",
-          "personnelId": "4",
-          "description": "Palliative care consultation",
-          "address": "6528 Jasmine Place",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-05_4",
-          "patientName": "Dorothy Young",
-          "patientId": "Z001260",
-          "startTime": "09:56",
-          "endTime": "11:26",
-          "personnelId": "4",
-          "description": "Vital signs monitoring and documentation",
-          "address": "5127 Dill Street",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-05_5",
-          "patientName": "Matthew Lewis",
-          "patientId": "Z001255",
-          "startTime": "12:19",
-          "endTime": "13:49",
-          "personnelId": "4",
-          "description": "Environmental safety assessment",
-          "address": "2468 Hickory Hill",
-          "duration": 90
-        },
-        {
-          "id": "4_2025-09-05_6",
-          "patientName": "Sarah Garcia",
-          "patientId": "Z001250",
-          "startTime": "14:20",
-          "endTime": "15:20",
-          "personnelId": "4",
-          "description": "Vital signs monitoring and documentation",
-          "address": "4321 Ash Street",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-05_7",
-          "patientName": "Linda Wilson",
-          "patientId": "Z001240",
-          "startTime": "16:14",
-          "endTime": "17:14",
-          "personnelId": "4",
-          "description": "Laboratory specimen collection",
-          "address": "789 Elm Drive",
-          "duration": 60
-        },
-        {
-          "id": "4_2025-09-05_8",
-          "patientName": "Linda Wilson",
-          "patientId": "Z001240",
-          "startTime": "18:09",
-          "endTime": "19:09",
-          "personnelId": "4",
-          "description": "Symptom management and comfort care",
-          "address": "5083 Camellia Lane",
-          "duration": 60
-        },
-        {
           "id": "5_2025-09-05_1",
           "patientName": "John Anderson",
           "patientId": "Z001234",
@@ -3929,17 +3043,6 @@
           "description": "Telehealth consultation setup",
           "address": "2901 Gardenia Street",
           "duration": 60
-        },
-        {
-          "id": "5_2025-09-05_6",
-          "patientName": "Thomas Thompson",
-          "patientId": "Z001249",
-          "startTime": "17:03",
-          "endTime": "18:33",
-          "personnelId": "5",
-          "description": "Chronic disease management consultation",
-          "address": "3456 Pine Road",
-          "duration": 90
         },
         {
           "id": "5_2025-09-05_7",
@@ -4008,17 +3111,6 @@
           "duration": 60
         },
         {
-          "id": "6_2025-09-05_6",
-          "patientName": "Lisa Rodriguez",
-          "patientId": "Z001254",
-          "startTime": "19:32",
-          "endTime": "20:32",
-          "personnelId": "6",
-          "description": "Insurance authorization and documentation",
-          "address": "901 Willow Way",
-          "duration": 60
-        },
-        {
           "id": "7_2025-09-05_1",
           "patientName": "Thomas Thompson",
           "patientId": "Z001249",
@@ -4061,17 +3153,6 @@
           "description": "Cognitive assessment and memory care planning",
           "address": "2561 Parsley Lane",
           "duration": 60
-        },
-        {
-          "id": "7_2025-09-05_5",
-          "patientName": "William Moore",
-          "patientId": "Z001241",
-          "startTime": "14:15",
-          "endTime": "15:45",
-          "personnelId": "7",
-          "description": "Symptom management and comfort care",
-          "address": "2561 Parsley Lane",
-          "duration": 90
         },
         {
           "id": "7_2025-09-05_6",
@@ -4129,17 +3210,6 @@
           "duration": 90
         },
         {
-          "id": "8_2025-09-05_4",
-          "patientName": "Elizabeth Taylor",
-          "patientId": "Z001242",
-          "startTime": "10:09",
-          "endTime": "11:09",
-          "personnelId": "8",
-          "description": "Infection control and prevention education",
-          "address": "6157 Palm Avenue",
-          "duration": 60
-        },
-        {
           "id": "8_2025-09-05_5",
           "patientName": "Donald Hernandez",
           "patientId": "Z001261",
@@ -4181,17 +3251,6 @@
           "personnelId": "9",
           "description": "Physical therapy evaluation and treatment",
           "address": "8642 Walnut Street",
-          "duration": 90
-        },
-        {
-          "id": "9_2025-09-05_2",
-          "patientName": "Thomas Thompson",
-          "patientId": "Z001249",
-          "startTime": "07:18",
-          "endTime": "08:48",
-          "personnelId": "9",
-          "description": "Infection control and prevention education",
-          "address": "4297 Sunflower Drive",
           "duration": 90
         },
         {
@@ -4250,17 +3309,6 @@
           "duration": 90
         },
         {
-          "id": "10_2025-09-05_1",
-          "patientName": "Sandra King",
-          "patientId": "Z001262",
-          "startTime": "05:00",
-          "endTime": "06:30",
-          "personnelId": "10",
-          "description": "Transitional care planning",
-          "address": "3456 Pine Road",
-          "duration": 90
-        },
-        {
           "id": "10_2025-09-05_2",
           "patientName": "Michael Miller",
           "patientId": "Z001239",
@@ -4269,17 +3317,6 @@
           "personnelId": "10",
           "description": "Cognitive assessment and memory care planning",
           "address": "1357 Poplar Place",
-          "duration": 60
-        },
-        {
-          "id": "10_2025-09-05_3",
-          "patientName": "Lisa Rodriguez",
-          "patientId": "Z001254",
-          "startTime": "08:55",
-          "endTime": "09:55",
-          "personnelId": "10",
-          "description": "Respiratory therapy and breathing exercises",
-          "address": "7531 Magnolia Road",
           "duration": 60
         },
         {
@@ -4425,34 +3462,34 @@
       "workloadBalance": 53
     },
     "recommended": {
-      "appointmentVolume": 95,
-      "travelEfficiency": 87,
-      "continuityOfCare": 81,
-      "workloadBalance": 86
+      "appointmentVolume": 90,
+      "travelEfficiency": 86,
+      "continuityOfCare": 80,
+      "workloadBalance": 87
     }
   },
   "metricCards": {
     "appointmentsScheduled": {
-      "value": 73,
-      "change": "+44.2%",
+      "value": 63,
+      "change": "+31.9%",
       "changeType": "positive",
       "label": "Appointments Scheduled"
     },
     "totalTravelTime": {
-      "value": "660 min",
-      "change": "-170 min",
+      "value": "640 min",
+      "change": "-140 min",
       "changeType": "positive",
       "label": "Total Travel Time"
     },
     "workloadBalance": {
-      "value": "86%",
-      "change": "+36.0%",
+      "value": "81%",
+      "change": "+52.8%",
       "changeType": "positive",
       "label": "Workload Balance"
     },
     "continuityOfCare": {
-      "value": "81%",
-      "change": "+23.0%",
+      "value": "69%",
+      "change": "+19.0%",
       "changeType": "positive",
       "label": "Continuity of Care"
     }
